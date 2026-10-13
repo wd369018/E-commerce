@@ -1,0 +1,138 @@
+2026-10-11 23:50:11,873 | INFO    | shopscope.etl | ==============================================================================
+2026-10-11 23:50:11,873 | INFO    | shopscope.etl | ShopScope ETL - run started
+2026-10-11 23:50:11,873 | INFO    | shopscope.etl | Project root: C:\Users\wd369\OneDrive\Desktop\E-commerce
+2026-10-11 23:50:11,873 | INFO    | shopscope.etl | ==============================================================================
+2026-10-11 23:50:11,873 | INFO    | shopscope.etl | [1/6] Ingesting raw CSVs (read-only)
+2026-10-11 23:50:12,091 | INFO    | src.data_loader | Loading olist_orders_dataset.csv (17.65 MB) from olist_orders_dataset.csv
+2026-10-11 23:50:12,722 | INFO    | src.data_loader |   -> olist_orders_dataset.csv rows=99,441 cols=8 cast_failures=0
+2026-10-11 23:50:12,737 | INFO    | src.data_loader | Loading olist_customers_dataset.csv (9.03 MB) from olist_customers_dataset.csv
+2026-10-11 23:50:12,952 | INFO    | src.data_loader |   -> olist_customers_dataset.csv rows=99,441 cols=5 cast_failures=0
+2026-10-11 23:50:12,973 | INFO    | src.data_loader | Loading olist_order_items_dataset.csv (14.62 MB) from olist_order_items_dataset.csv
+2026-10-11 23:50:13,510 | INFO    | src.data_loader |   -> olist_order_items_dataset.csv rows=112,650 cols=7 cast_failures=0
+2026-10-11 23:50:13,517 | INFO    | src.data_loader | Loading olist_order_payments_dataset.csv (5.78 MB) from olist_order_payments_dataset.csv
+2026-10-11 23:50:13,743 | INFO    | src.data_loader |   -> olist_order_payments_dataset.csv rows=103,886 cols=5 cast_failures=0
+2026-10-11 23:50:13,783 | INFO    | src.data_loader | Loading olist_order_reviews_dataset.csv (14.45 MB) from olist_order_reviews_dataset.csv
+2026-10-11 23:50:14,976 | INFO    | src.data_loader |   -> olist_order_reviews_dataset.csv rows=99,224 cols=7 cast_failures=0
+2026-10-11 23:50:14,985 | INFO    | src.data_loader | Loading olist_products_dataset.csv (2.38 MB) from olist_products_dataset.csv
+2026-10-11 23:50:15,454 | INFO    | src.data_loader |   -> olist_products_dataset.csv rows=32,951 cols=9 cast_failures=0
+2026-10-11 23:50:15,457 | INFO    | src.data_loader | Loading olist_sellers_dataset.csv (0.17 MB) from olist_sellers_dataset.csv
+2026-10-11 23:50:15,490 | INFO    | src.data_loader |   -> olist_sellers_dataset.csv rows=3,095 cols=4 cast_failures=0
+2026-10-11 23:50:15,665 | INFO    | src.data_loader | Loading olist_geolocation_dataset.csv (61.27 MB) from olist_geolocation_dataset.csv
+2026-10-11 23:50:18,479 | INFO    | src.data_loader |   -> olist_geolocation_dataset.csv rows=1,000,163 cols=5 cast_failures=0
+2026-10-11 23:50:18,480 | INFO    | src.data_loader | Loading product_category_name_translation.csv (0.00 MB) from product_category_name_translation.csv
+2026-10-11 23:50:18,481 | INFO    | src.data_loader |   -> product_category_name_translation.csv rows=71 cols=2 cast_failures=0
+2026-10-11 23:50:18,481 | INFO    | shopscope.etl | [2/6] Profiling raw data -> before report
+2026-10-11 23:50:19,406 | INFO    | shopscope.etl | [3/6] Cleaning
+2026-10-11 23:50:41,987 | INFO    | shopscope.etl |   dim_customer               99,441 ->   99,441  (excluded 0)
+2026-10-11 23:50:41,988 | INFO    | shopscope.etl |   dim_customer_identity      99,441 ->   96,096  (excluded 0)
+2026-10-11 23:50:50,282 | INFO    | shopscope.etl |   dim_order                  99,441 ->   99,441  (excluded 0)
+2026-10-11 23:50:50,406 | INFO    | shopscope.etl |   dim_product_category           71 ->       74  (excluded 0)
+2026-10-11 23:50:50,453 | INFO    | shopscope.etl |   dim_product                32,951 ->   32,951  (excluded 0)
+2026-10-11 23:50:50,454 | INFO    | shopscope.etl |   dim_seller                  3,095 ->    3,095  (excluded 0)
+2026-10-11 23:50:50,518 | INFO    | shopscope.etl |   fact_order_item           112,650 ->  112,650  (excluded 0)
+2026-10-11 23:50:50,524 | INFO    | shopscope.etl |   bridge_payment            103,886 ->  103,886  (excluded 0)
+2026-10-11 23:50:51,535 | INFO    | shopscope.etl |   bridge_review              99,224 ->   98,673  (excluded 551)
+2026-10-11 23:51:13,489 | INFO    | src.data_cleaning | geolocation: 1,000,163 rows -> 19,177 rows (261,831 exact dups removed, 33 outliers quarantined, 162 address-only ZIPs appended)
+2026-10-11 23:51:13,498 | INFO    | shopscope.etl |   dim_geolocation          1,000,163 ->   19,177  (excluded 261,864)
+2026-10-11 23:51:13,498 | INFO    | shopscope.etl | [4/6] Transforming -> fact_order_summary
+2026-10-11 23:51:14,394 | INFO    | src.transform | fact_order_summary: 99,441 rows (775 with no items, 1 with no payment, 768 with no review)
+2026-10-11 23:51:14,396 | INFO    | shopscope.etl | [5/6] Validating keys, grain and reconciliation vs source
+2026-10-11 23:51:14,426 | INFO    | src.validation | [PASS] dim_customer.pk_not_null :: primary key ['customer_id'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,427 | INFO    | src.validation | [PASS] dim_customer.pk_unique :: primary key ['customer_id'] is unique (observed=0 duplicate key rows out of 99,441 expected=0)
+2026-10-11 23:51:14,465 | INFO    | src.validation | [PASS] dim_customer_identity.pk_not_null :: primary key ['customer_unique_id'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,466 | INFO    | src.validation | [PASS] dim_customer_identity.pk_unique :: primary key ['customer_unique_id'] is unique (observed=0 duplicate key rows out of 96,096 expected=0)
+2026-10-11 23:51:14,477 | INFO    | src.validation | [PASS] dim_product.pk_not_null :: primary key ['product_id'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,477 | INFO    | src.validation | [PASS] dim_product.pk_unique :: primary key ['product_id'] is unique (observed=0 duplicate key rows out of 32,951 expected=0)
+2026-10-11 23:51:14,481 | INFO    | src.validation | [PASS] dim_product_category.pk_not_null :: primary key ['product_category_name'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,481 | INFO    | src.validation | [PASS] dim_product_category.pk_unique :: primary key ['product_category_name'] is unique (observed=0 duplicate key rows out of 74 expected=0)
+2026-10-11 23:51:14,483 | INFO    | src.validation | [PASS] dim_seller.pk_not_null :: primary key ['seller_id'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,483 | INFO    | src.validation | [PASS] dim_seller.pk_unique :: primary key ['seller_id'] is unique (observed=0 duplicate key rows out of 3,095 expected=0)
+2026-10-11 23:51:14,517 | INFO    | src.validation | [PASS] dim_order.pk_not_null :: primary key ['order_id'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,517 | INFO    | src.validation | [PASS] dim_order.pk_unique :: primary key ['order_id'] is unique (observed=0 duplicate key rows out of 99,441 expected=0)
+2026-10-11 23:51:14,522 | INFO    | src.validation | [PASS] dim_geolocation.pk_not_null :: primary key ['geolocation_zip_code_prefix'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,522 | INFO    | src.validation | [PASS] dim_geolocation.pk_unique :: primary key ['geolocation_zip_code_prefix'] is unique (observed=0 duplicate key rows out of 19,177 expected=0)
+2026-10-11 23:51:14,568 | INFO    | src.validation | [PASS] fact_order_item.pk_not_null :: primary key ['order_id', 'order_item_id'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,568 | INFO    | src.validation | [PASS] fact_order_item.pk_unique :: primary key ['order_id', 'order_item_id'] is unique (observed=0 duplicate key rows out of 112,650 expected=0)
+2026-10-11 23:51:14,613 | INFO    | src.validation | [PASS] bridge_payment.pk_not_null :: primary key ['order_id', 'payment_sequential'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,614 | INFO    | src.validation | [PASS] bridge_payment.pk_unique :: primary key ['order_id', 'payment_sequential'] is unique (observed=0 duplicate key rows out of 103,886 expected=0)
+2026-10-11 23:51:14,666 | INFO    | src.validation | [PASS] bridge_review.pk_not_null :: primary key ['order_id'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,667 | INFO    | src.validation | [PASS] bridge_review.pk_unique :: primary key ['order_id'] is unique (observed=0 duplicate key rows out of 98,673 expected=0)
+2026-10-11 23:51:14,714 | INFO    | src.validation | [PASS] fact_order_summary.pk_not_null :: primary key ['order_id'] has no NULL (observed=0 rows with NULL key expected=-)
+2026-10-11 23:51:14,715 | INFO    | src.validation | [PASS] fact_order_summary.pk_unique :: primary key ['order_id'] is unique (observed=0 duplicate key rows out of 99,441 expected=0)
+2026-10-11 23:51:18,222 | INFO    | src.validation | [PASS] order.customer.no_orphans :: FK customer_id -> customer_id (observed=0 orphan child rows of 99,441 (customer_id) expected=0)
+2026-10-11 23:51:18,991 | INFO    | src.validation | [PASS] item.order.no_orphans :: FK order_id -> order_id (observed=0 orphan child rows of 112,650 (order_id) expected=0)
+2026-10-11 23:51:19,257 | INFO    | src.validation | [PASS] item.product.no_orphans :: FK product_id -> product_id (observed=0 orphan child rows of 112,650 (product_id) expected=0)
+2026-10-11 23:51:19,284 | INFO    | src.validation | [PASS] item.seller.no_orphans :: FK seller_id -> seller_id (observed=0 orphan child rows of 112,650 (seller_id) expected=0)
+2026-10-11 23:51:19,906 | INFO    | src.validation | [PASS] payment.order.no_orphans :: FK order_id -> order_id (observed=0 orphan child rows of 103,886 (order_id) expected=0)
+2026-10-11 23:51:20,559 | INFO    | src.validation | [PASS] review.order.no_orphans :: FK order_id -> order_id (observed=0 orphan child rows of 98,673 (order_id) expected=0)
+2026-10-11 23:51:21,215 | INFO    | src.validation | [PASS] summary.order.no_orphans :: FK order_id -> order_id (observed=0 orphan child rows of 99,441 (order_id) expected=0)
+2026-10-11 23:51:21,222 | INFO    | src.validation | [PASS] product.category.no_orphans :: FK product_category_name -> product_category_name (observed=0 orphan child rows of 32,951 (product_category_name) expected=0)
+2026-10-11 23:51:21,231 | INFO    | src.validation | [PASS] customer.geolocation.no_orphans :: FK customer_zip_code_prefix -> geolocation_zip_code_prefix (observed=0 orphan child rows of 99,441 (customer_zip_code_prefix) expected=0)
+2026-10-11 23:51:21,235 | INFO    | src.validation | [PASS] seller.geolocation.no_orphans :: FK seller_zip_code_prefix -> geolocation_zip_code_prefix (observed=0 orphan child rows of 3,095 (seller_zip_code_prefix) expected=0)
+2026-10-11 23:51:21,235 | INFO    | src.validation | [PASS] dim_order.order_id.not_null :: order_id is never NULL (observed=0 NULL of 99,441 expected=-)
+2026-10-11 23:51:21,236 | INFO    | src.validation | [PASS] dim_order.customer_id.not_null :: customer_id is never NULL (observed=0 NULL of 99,441 expected=-)
+2026-10-11 23:51:21,236 | INFO    | src.validation | [PASS] dim_order.order_status.not_null :: order_status is never NULL (observed=0 NULL of 99,441 expected=-)
+2026-10-11 23:51:21,236 | INFO    | src.validation | [PASS] dim_order.order_purchase_timestamp.not_null :: order_purchase_timestamp is never NULL (observed=0 NULL of 99,441 expected=-)
+2026-10-11 23:51:21,236 | INFO    | src.validation | [PASS] fact_order_item.order_id.not_null :: order_id is never NULL (observed=0 NULL of 112,650 expected=-)
+2026-10-11 23:51:21,236 | INFO    | src.validation | [PASS] fact_order_item.order_item_id.not_null :: order_item_id is never NULL (observed=0 NULL of 112,650 expected=-)
+2026-10-11 23:51:21,237 | INFO    | src.validation | [PASS] fact_order_item.product_id.not_null :: product_id is never NULL (observed=0 NULL of 112,650 expected=-)
+2026-10-11 23:51:21,237 | INFO    | src.validation | [PASS] fact_order_item.seller_id.not_null :: seller_id is never NULL (observed=0 NULL of 112,650 expected=-)
+2026-10-11 23:51:21,237 | INFO    | src.validation | [PASS] fact_order_item.price.not_null :: price is never NULL (observed=0 NULL of 112,650 expected=-)
+2026-10-11 23:51:21,238 | INFO    | src.validation | [PASS] fact_order_item.price.range :: price within [0.0001, 1000000000000.0] (observed=0 out-of-range values of 112,650 expected=0)
+2026-10-11 23:51:21,239 | INFO    | src.validation | [PASS] fact_order_item.freight_value.range :: freight_value within [0.0, 1000000000000.0] (observed=0 out-of-range values of 112,650 expected=0)
+2026-10-11 23:51:21,240 | INFO    | src.validation | [PASS] bridge_review.review_score.range :: review_score within [1, 5] (observed=0 out-of-range values of 98,673 expected=0)
+2026-10-11 23:51:21,242 | WARNING | src.validation | [FAIL] bridge_payment.payment_value.range :: payment_value within [0.0001, 1000000000000.0] (observed=9 out-of-range values of 103,886 expected=0)
+2026-10-11 23:51:21,242 | INFO    | src.validation | [PASS] dim_order.row_count :: row count dim_order - orders are never dropped (observed=99,441 expected=99,441)
+2026-10-11 23:51:21,242 | INFO    | src.validation | [PASS] dim_customer.row_count :: row count dim_customer (observed=99,441 expected=99,441)
+2026-10-11 23:51:21,242 | INFO    | src.validation | [PASS] dim_product.row_count :: row count dim_product (observed=32,951 expected=32,951)
+2026-10-11 23:51:21,242 | INFO    | src.validation | [PASS] dim_seller.row_count :: row count dim_seller (observed=3,095 expected=3,095)
+2026-10-11 23:51:21,242 | INFO    | src.validation | [PASS] fact_order_item.row_count :: row count fact_order_item (observed=112,650 expected=112,650)
+2026-10-11 23:51:21,242 | INFO    | src.validation | [PASS] bridge_payment.row_count :: row count bridge_payment (observed=103,886 expected=103,886)
+2026-10-11 23:51:21,254 | INFO    | src.validation | [PASS] bridge_review.row_count :: row count bridge_review - deliberate collapse to one review per order (observed=98,673 expected=98,673)
+2026-10-11 23:51:21,346 | INFO    | src.validation | [PASS] dim_geolocation.row_count :: row count dim_geolocation - grain = source ZIPs union ZIPs referenced by an address (observed=19,177 expected=19,177)
+2026-10-11 23:51:21,348 | INFO    | src.validation | [PASS] recon.item_revenue :: sum(price + freight) equals source total (observed=15,843,553.24 expected=15,843,553.24)
+2026-10-11 23:51:21,349 | INFO    | src.validation | [PASS] recon.payment_total :: sum(payment_value) equals source total (observed=16,008,872.120000001 expected=16,008,872.120000001)
+2026-10-11 23:51:21,349 | INFO    | src.validation | [PASS] recon.summary_item_revenue :: fact_order_summary item_revenue equals fact_order_item total (observed=15,843,553.240000015 expected=15,843,553.24)
+2026-10-11 23:51:21,349 | INFO    | src.validation | [PASS] recon.summary_payment :: fact_order_summary payment_collected equals bridge_payment total (observed=16,008,872.120000001 expected=16,008,872.120000001)
+2026-10-11 23:51:21,349 | INFO    | src.validation | [PASS] recon.summary_count :: fact_order_summary has one row per order (observed=99,441 expected=99,441)
+2026-10-11 23:51:22,068 | INFO    | src.validation | [PASS] recon.orders_without_items :: orders flagged without line items equals source count (observed=775 expected=775)
+2026-10-11 23:51:22,687 | INFO    | src.validation | [PASS] recon.orders_without_payments :: orders flagged without payments equals source count (observed=1 expected=1)
+2026-10-11 23:51:22,688 | INFO    | src.validation | [PASS] recon.unknown_categories :: products with no category were tagged 'unknown', not dropped (observed=610 expected=610)
+2026-10-11 23:51:22,691 | WARNING | src.validation | [FAIL] quality.product_untranslated_categories :: every real product category has an English translation (observed=13 product row(s) whose category has no English label expected=0 (categories missing from the translation file))
+2026-10-11 23:51:22,691 | WARNING | src.validation | [FAIL] quality.geolocation_usable :: every ZIP has a usable centroid (observed=167 ZIP(s) with NULL centroid (all coordinates quarantined or absent) expected=0)
+2026-10-11 23:51:22,691 | WARNING | src.validation | [FAIL] quality.geolocation_address_coverage :: every address ZIP has geolocation source data (observed=162 ZIP prefix(es) referenced by customers/sellers but absent from the geolocation source (placeholder row, NULL centroid) expected=0 (gap present in the source data, not created by this pipeline))
+2026-10-11 23:51:22,699 | INFO    | shopscope.etl | [6/6] Writing outputs
+2026-10-11 23:51:22,857 | INFO    | shopscope.etl |   wrote dim_customer.csv                             99,441 rows   8,562,270 bytes
+2026-10-11 23:51:22,970 | INFO    | shopscope.etl |   wrote dim_customer_identity.csv                    96,096 rows   6,822,997 bytes
+2026-10-11 23:51:23,537 | INFO    | shopscope.etl |   wrote dim_order.csv                                99,441 rows  23,301,141 bytes
+2026-10-11 23:51:23,541 | INFO    | shopscope.etl |   wrote dim_product_category.csv                         74 rows       3,003 bytes
+2026-10-11 23:51:23,669 | INFO    | shopscope.etl |   wrote dim_product.csv                              32,951 rows   3,419,360 bytes
+2026-10-11 23:51:23,675 | INFO    | shopscope.etl |   wrote dim_seller.csv                                3,095 rows     163,590 bytes
+2026-10-11 23:51:23,845 | INFO    | shopscope.etl |   wrote dim_geolocation.csv                          19,177 rows   1,322,920 bytes
+2026-10-11 23:51:25,217 | INFO    | shopscope.etl |   wrote fact_order_item.csv                         112,650 rows  16,038,108 bytes
+2026-10-11 23:51:25,763 | INFO    | shopscope.etl |   wrote bridge_payment.csv                          103,886 rows   6,672,278 bytes
+2026-10-11 23:51:27,141 | INFO    | shopscope.etl |   wrote bridge_review.csv                            98,673 rows  14,274,866 bytes
+2026-10-11 23:51:28,900 | INFO    | shopscope.etl |   wrote fact_order_summary.csv                       99,441 rows  10,160,821 bytes
+2026-10-11 23:51:28,914 | INFO    | shopscope.etl |   wrote quarantine_invalid_dates.csv                  1,382 rows     169,921 bytes
+2026-10-11 23:51:28,917 | INFO    | shopscope.etl |   wrote quarantine_geolocation_outliers.csv              33 rows       3,464 bytes
+2026-10-11 23:51:30,921 | INFO    | src.reporting | Wrote reports\data_quality_before_cleaning.md
+2026-10-11 23:51:30,935 | INFO    | src.reporting | Wrote reports\data_quality_after_cleaning.md
+2026-10-11 23:51:31,285 | INFO    | src.reporting | Wrote reports\etl_run_summary.json
+2026-10-11 23:52:14,114 | INFO    | src.quality_audit | Data-quality audit written: data_quality_audit.csv, data_quality_audit.json, data_quality_summary.md
+2026-10-11 23:52:14,114 | INFO    | shopscope.etl | ------------------------------------------------------------------------------
+2026-10-11 23:52:14,114 | INFO    | shopscope.etl | Run finished in 79.40s
+2026-10-11 23:52:14,115 | INFO    | shopscope.etl | Checks: 64 total | 60 passed | 4 warnings | 0 errors
+2026-10-11 23:52:14,115 | INFO    | shopscope.etl | Unresolved issues:
+2026-10-11 23:52:14,115 | INFO    | shopscope.etl |   - payment_value within [0.0001, 1000000000000.0] -> 9 out-of-range values of 103,886 (expected 0)
+2026-10-11 23:52:14,115 | INFO    | shopscope.etl |   - every real product category has an English translation -> 13 product row(s) whose category has no English label (expected 0 (categories missing from the translation file))
+2026-10-11 23:52:14,115 | INFO    | shopscope.etl |   - every ZIP has a usable centroid -> 167 ZIP(s) with NULL centroid (all coordinates quarantined or absent) (expected 0)
+2026-10-11 23:52:14,115 | INFO    | shopscope.etl |   - every address ZIP has geolocation source data -> 162 ZIP prefix(es) referenced by customers/sellers but absent from the geolocation source (placeholder row, NULL centroid) (expected 0 (gap present in the source data, not created by this pipeline))
+2026-10-11 23:52:14,116 | INFO    | shopscope.etl |   - 551 source rows were a second review on the same order and were collapsed to one (latest kept); 202 orders had conflicting scores.
+2026-10-11 23:52:14,116 | INFO    | shopscope.etl |   - 33 geolocation coordinates were outside Brazil and were moved to data/quarantine/ (ZIP kept, centroid from valid rows).
+2026-10-11 23:52:14,116 | INFO    | shopscope.etl |   - 775 orders have no line items: item_revenue is NULL for them, so GMV built on fact_order_item omits them by construction.
+2026-10-11 23:52:14,116 | INFO    | shopscope.etl |   - 8 orders are marked 'delivered' with no delivery timestamp - excluded from delivery-delay metrics (NULL kept).
+2026-10-11 23:52:14,117 | INFO    | shopscope.etl |   - 1,382 orders have a non-monotonic date sequence (approval / carrier / delivery out of order). They are kept and flagged with has_impossible_date_sequence; an audit copy is in data/quarantine/quarantine_invalid_dates.csv.
+2026-10-11 23:52:14,117 | INFO    | shopscope.etl |   - 11 payment rows have a non-positive value or instalment count; kept and flagged, excluded from payment-mix rates.
+2026-10-11 23:52:14,117 | INFO    | shopscope.etl |   - 13 product rows belong to a category with no English translation (English label left NULL, not guessed).
+2026-10-11 23:52:14,117 | INFO    | shopscope.etl |   - 610 products had no category and were tagged 'unknown' so they survive group-by and joins.
+2026-10-11 23:52:14,117 | INFO    | shopscope.etl | SUCCESS - outputs in data\processed

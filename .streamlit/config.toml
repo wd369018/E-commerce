@@ -1,0 +1,19 @@
+# ShopScope theme + behaviour configuration (Streamlit 1.57).
+#
+# Theme pins the app to a deterministic LIGHT baseline. Without this,
+# Streamlit 1.57 follows the OS `prefers-color-scheme`: on a dark-mode machine
+# the whole app rendered dark while the old custom CSS forced a light sidebar,
+# i.e. white navigation text on a white sidebar. `theme.*` is not scriptable at
+# runtime, so the Light/Dark toggle is implemented by the app itself
+# (src/dashboard/theme.py) on top of this pinned baseline.
+[theme]
+base = "light"
+primaryColor = "#2563eb"
+backgroundColor = "#f6f8fb"
+secondaryBackgroundColor = "#f8fafc"
+textColor = "#111827"
+font = "sans serif"
+
+# Keep usage data local.
+[browser]
+gatherUsageStats = false

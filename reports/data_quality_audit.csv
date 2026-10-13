@@ -1,0 +1,403 @@
+file,check,column,value,note,status
+olist_orders_dataset.csv,row_count,-,"99,441",rows,info
+olist_orders_dataset.csv,column_count,-,8,columns in the file,info
+olist_orders_dataset.csv,exact_duplicate_rows,-,0,fully duplicated rows,ok
+olist_orders_dataset.csv,business_key.order_id,-,0 extra rows in 0 groups,duplicate business key,ok
+olist_orders_dataset.csv,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+olist_orders_dataset.csv,missing.customer_id,customer_id,0 (0.0%),missing values by column,ok
+olist_orders_dataset.csv,missing.order_status,order_status,0 (0.0%),missing values by column,ok
+olist_orders_dataset.csv,missing.order_purchase_timestamp,order_purchase_timestamp,0 (0.0%),missing values by column,ok
+olist_orders_dataset.csv,missing.order_approved_at,order_approved_at,160 (0.16%),missing values by column,flagged
+olist_orders_dataset.csv,missing.order_delivered_carrier_date,order_delivered_carrier_date,"1,783 (1.79%)",missing values by column,flagged
+olist_orders_dataset.csv,missing.order_delivered_customer_date,order_delivered_customer_date,"2,965 (2.98%)",missing values by column,flagged
+olist_orders_dataset.csv,missing.order_estimated_delivery_date,order_estimated_delivery_date,0 (0.0%),missing values by column,ok
+olist_orders_dataset.csv,column_profile,order_id,"99,441 non-null","dtype=str unique=99,441",info
+olist_orders_dataset.csv,column_profile,customer_id,"99,441 non-null","dtype=str unique=99,441",info
+olist_orders_dataset.csv,column_profile,order_status,"99,441 non-null",dtype=str unique=8,info
+olist_orders_dataset.csv,column_profile,order_purchase_timestamp,"99,441 non-null","dtype=datetime64[us] unique=98,875",info
+olist_orders_dataset.csv,column_profile,order_approved_at,"99,281 non-null","dtype=datetime64[us] unique=90,733",info
+olist_orders_dataset.csv,column_profile,order_delivered_carrier_date,"97,658 non-null","dtype=datetime64[us] unique=81,018",info
+olist_orders_dataset.csv,column_profile,order_delivered_customer_date,"96,476 non-null","dtype=datetime64[us] unique=95,664",info
+olist_orders_dataset.csv,column_profile,order_estimated_delivery_date,"99,441 non-null",dtype=datetime64[us] unique=459,info
+olist_orders_dataset.csv,orphan.order.customer,-,"0 of 99,441",foreign-key orphans (child rows without a parent),ok
+olist_customers_dataset.csv,row_count,-,"99,441",rows,info
+olist_customers_dataset.csv,column_count,-,5,columns in the file,info
+olist_customers_dataset.csv,exact_duplicate_rows,-,0,fully duplicated rows,ok
+olist_customers_dataset.csv,business_key.customer_id,-,0 extra rows in 0 groups,duplicate business key,ok
+olist_customers_dataset.csv,business_key.customer_unique_id,-,"3,345 extra rows in 2,997 groups",duplicate business key,flagged
+olist_customers_dataset.csv,missing.customer_id,customer_id,0 (0.0%),missing values by column,ok
+olist_customers_dataset.csv,missing.customer_unique_id,customer_unique_id,0 (0.0%),missing values by column,ok
+olist_customers_dataset.csv,missing.customer_zip_code_prefix,customer_zip_code_prefix,0 (0.0%),missing values by column,ok
+olist_customers_dataset.csv,missing.customer_city,customer_city,0 (0.0%),missing values by column,ok
+olist_customers_dataset.csv,missing.customer_state,customer_state,0 (0.0%),missing values by column,ok
+olist_customers_dataset.csv,column_profile,customer_id,"99,441 non-null","dtype=str unique=99,441",info
+olist_customers_dataset.csv,column_profile,customer_unique_id,"99,441 non-null","dtype=str unique=96,096",info
+olist_customers_dataset.csv,column_profile,customer_zip_code_prefix,"99,441 non-null","dtype=Int64 unique=14,994",info
+olist_customers_dataset.csv,column_profile,customer_city,"99,441 non-null","dtype=str unique=4,119",info
+olist_customers_dataset.csv,column_profile,customer_state,"99,441 non-null",dtype=str unique=27,info
+olist_customers_dataset.csv,orphan.customer.zip,-,"278 of 99,441",foreign-key orphans (child rows without a parent),flagged
+olist_order_items_dataset.csv,row_count,-,"112,650",rows,info
+olist_order_items_dataset.csv,column_count,-,7,columns in the file,info
+olist_order_items_dataset.csv,exact_duplicate_rows,-,0,fully duplicated rows,ok
+olist_order_items_dataset.csv,business_key.order_id,-,"13,984 extra rows in 9,803 groups",duplicate business key,flagged
+olist_order_items_dataset.csv,"business_key.order_id,order_item_id",-,0 extra rows in 0 groups,duplicate business key,ok
+olist_order_items_dataset.csv,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+olist_order_items_dataset.csv,missing.order_item_id,order_item_id,0 (0.0%),missing values by column,ok
+olist_order_items_dataset.csv,missing.product_id,product_id,0 (0.0%),missing values by column,ok
+olist_order_items_dataset.csv,missing.seller_id,seller_id,0 (0.0%),missing values by column,ok
+olist_order_items_dataset.csv,missing.shipping_limit_date,shipping_limit_date,0 (0.0%),missing values by column,ok
+olist_order_items_dataset.csv,missing.price,price,0 (0.0%),missing values by column,ok
+olist_order_items_dataset.csv,missing.freight_value,freight_value,0 (0.0%),missing values by column,ok
+olist_order_items_dataset.csv,column_profile,order_id,"112,650 non-null","dtype=str unique=98,666",info
+olist_order_items_dataset.csv,column_profile,order_item_id,"112,650 non-null",dtype=Int64 unique=21,info
+olist_order_items_dataset.csv,column_profile,product_id,"112,650 non-null","dtype=str unique=32,951",info
+olist_order_items_dataset.csv,column_profile,seller_id,"112,650 non-null","dtype=str unique=3,095",info
+olist_order_items_dataset.csv,column_profile,shipping_limit_date,"112,650 non-null","dtype=datetime64[us] unique=54,615",info
+olist_order_items_dataset.csv,column_profile,price,"112,650 non-null","dtype=Float64 unique=5,968",info
+olist_order_items_dataset.csv,column_profile,freight_value,"112,650 non-null","dtype=Float64 unique=6,999",info
+olist_order_items_dataset.csv,orphan.item.order,-,"0 of 112,650",foreign-key orphans (child rows without a parent),ok
+olist_order_items_dataset.csv,orphan.item.product,-,"0 of 112,650",foreign-key orphans (child rows without a parent),ok
+olist_order_items_dataset.csv,orphan.item.seller,-,"0 of 112,650",foreign-key orphans (child rows without a parent),ok
+olist_order_payments_dataset.csv,row_count,-,"103,886",rows,info
+olist_order_payments_dataset.csv,column_count,-,5,columns in the file,info
+olist_order_payments_dataset.csv,exact_duplicate_rows,-,0,fully duplicated rows,ok
+olist_order_payments_dataset.csv,business_key.order_id,-,"4,446 extra rows in 2,961 groups",duplicate business key,flagged
+olist_order_payments_dataset.csv,"business_key.order_id,payment_sequential",-,0 extra rows in 0 groups,duplicate business key,ok
+olist_order_payments_dataset.csv,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+olist_order_payments_dataset.csv,missing.payment_sequential,payment_sequential,0 (0.0%),missing values by column,ok
+olist_order_payments_dataset.csv,missing.payment_type,payment_type,0 (0.0%),missing values by column,ok
+olist_order_payments_dataset.csv,missing.payment_installments,payment_installments,0 (0.0%),missing values by column,ok
+olist_order_payments_dataset.csv,missing.payment_value,payment_value,0 (0.0%),missing values by column,ok
+olist_order_payments_dataset.csv,column_profile,order_id,"103,886 non-null","dtype=str unique=99,440",info
+olist_order_payments_dataset.csv,column_profile,payment_sequential,"103,886 non-null",dtype=Int64 unique=29,info
+olist_order_payments_dataset.csv,column_profile,payment_type,"103,886 non-null",dtype=str unique=5,info
+olist_order_payments_dataset.csv,column_profile,payment_installments,"103,886 non-null",dtype=Int64 unique=24,info
+olist_order_payments_dataset.csv,column_profile,payment_value,"103,886 non-null","dtype=Float64 unique=29,077",info
+olist_order_payments_dataset.csv,invalid.payment_value_non_positive,-,9,invalid or out-of-range value,flagged
+olist_order_payments_dataset.csv,invalid.installments_non_positive,-,2,invalid or out-of-range value,flagged
+olist_order_payments_dataset.csv,orphan.payment.order,-,"0 of 103,886",foreign-key orphans (child rows without a parent),ok
+olist_order_reviews_dataset.csv,row_count,-,"99,224",rows,info
+olist_order_reviews_dataset.csv,column_count,-,7,columns in the file,info
+olist_order_reviews_dataset.csv,exact_duplicate_rows,-,0,fully duplicated rows,ok
+olist_order_reviews_dataset.csv,business_key.review_id,-,814 extra rows in 789 groups,duplicate business key,flagged
+olist_order_reviews_dataset.csv,business_key.order_id,-,551 extra rows in 547 groups,duplicate business key,flagged
+olist_order_reviews_dataset.csv,missing.review_id,review_id,0 (0.0%),missing values by column,ok
+olist_order_reviews_dataset.csv,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+olist_order_reviews_dataset.csv,missing.review_score,review_score,0 (0.0%),missing values by column,ok
+olist_order_reviews_dataset.csv,missing.review_comment_title,review_comment_title,"87,656 (88.34%)",missing values by column,flagged
+olist_order_reviews_dataset.csv,missing.review_comment_message,review_comment_message,"58,247 (58.7%)",missing values by column,flagged
+olist_order_reviews_dataset.csv,missing.review_creation_date,review_creation_date,0 (0.0%),missing values by column,ok
+olist_order_reviews_dataset.csv,missing.review_answer_timestamp,review_answer_timestamp,0 (0.0%),missing values by column,ok
+olist_order_reviews_dataset.csv,column_profile,review_id,"99,224 non-null","dtype=str unique=98,410",info
+olist_order_reviews_dataset.csv,column_profile,order_id,"99,224 non-null","dtype=str unique=98,673",info
+olist_order_reviews_dataset.csv,column_profile,review_score,"99,224 non-null",dtype=Int64 unique=5,info
+olist_order_reviews_dataset.csv,column_profile,review_comment_title,"11,568 non-null","dtype=str unique=4,527",info
+olist_order_reviews_dataset.csv,column_profile,review_comment_message,"40,977 non-null","dtype=str unique=36,159",info
+olist_order_reviews_dataset.csv,column_profile,review_creation_date,"99,224 non-null",dtype=datetime64[us] unique=636,info
+olist_order_reviews_dataset.csv,column_profile,review_answer_timestamp,"99,224 non-null","dtype=datetime64[us] unique=98,248",info
+olist_order_reviews_dataset.csv,orphan.review.order,-,"0 of 99,224",foreign-key orphans (child rows without a parent),ok
+olist_products_dataset.csv,row_count,-,"32,951",rows,info
+olist_products_dataset.csv,column_count,-,9,columns in the file,info
+olist_products_dataset.csv,exact_duplicate_rows,-,0,fully duplicated rows,ok
+olist_products_dataset.csv,business_key.product_id,-,0 extra rows in 0 groups,duplicate business key,ok
+olist_products_dataset.csv,missing.product_id,product_id,0 (0.0%),missing values by column,ok
+olist_products_dataset.csv,missing.product_category_name,product_category_name,610 (1.85%),missing values by column,flagged
+olist_products_dataset.csv,missing.product_name_lenght,product_name_lenght,610 (1.85%),missing values by column,flagged
+olist_products_dataset.csv,missing.product_description_lenght,product_description_lenght,610 (1.85%),missing values by column,flagged
+olist_products_dataset.csv,missing.product_photos_qty,product_photos_qty,610 (1.85%),missing values by column,flagged
+olist_products_dataset.csv,missing.product_weight_g,product_weight_g,2 (0.01%),missing values by column,flagged
+olist_products_dataset.csv,missing.product_length_cm,product_length_cm,2 (0.01%),missing values by column,flagged
+olist_products_dataset.csv,missing.product_height_cm,product_height_cm,2 (0.01%),missing values by column,flagged
+olist_products_dataset.csv,missing.product_width_cm,product_width_cm,2 (0.01%),missing values by column,flagged
+olist_products_dataset.csv,column_profile,product_id,"32,951 non-null","dtype=str unique=32,951",info
+olist_products_dataset.csv,column_profile,product_category_name,"32,341 non-null",dtype=str unique=73,info
+olist_products_dataset.csv,column_profile,product_name_lenght,"32,341 non-null",dtype=Int64 unique=66,info
+olist_products_dataset.csv,column_profile,product_description_lenght,"32,341 non-null","dtype=Int64 unique=2,960",info
+olist_products_dataset.csv,column_profile,product_photos_qty,"32,341 non-null",dtype=Int64 unique=19,info
+olist_products_dataset.csv,column_profile,product_weight_g,"32,949 non-null","dtype=Float64 unique=2,204",info
+olist_products_dataset.csv,column_profile,product_length_cm,"32,949 non-null",dtype=Float64 unique=99,info
+olist_products_dataset.csv,column_profile,product_height_cm,"32,949 non-null",dtype=Float64 unique=102,info
+olist_products_dataset.csv,column_profile,product_width_cm,"32,949 non-null",dtype=Float64 unique=95,info
+olist_products_dataset.csv,invalid.product_weight_g_non_positive,-,4,invalid or out-of-range value,flagged
+olist_products_dataset.csv,orphan.product.category,-,"13 of 32,341",foreign-key orphans (child rows without a parent),flagged
+olist_sellers_dataset.csv,row_count,-,"3,095",rows,info
+olist_sellers_dataset.csv,column_count,-,4,columns in the file,info
+olist_sellers_dataset.csv,exact_duplicate_rows,-,0,fully duplicated rows,ok
+olist_sellers_dataset.csv,business_key.seller_id,-,0 extra rows in 0 groups,duplicate business key,ok
+olist_sellers_dataset.csv,missing.seller_id,seller_id,0 (0.0%),missing values by column,ok
+olist_sellers_dataset.csv,missing.seller_zip_code_prefix,seller_zip_code_prefix,0 (0.0%),missing values by column,ok
+olist_sellers_dataset.csv,missing.seller_city,seller_city,0 (0.0%),missing values by column,ok
+olist_sellers_dataset.csv,missing.seller_state,seller_state,0 (0.0%),missing values by column,ok
+olist_sellers_dataset.csv,column_profile,seller_id,"3,095 non-null","dtype=str unique=3,095",info
+olist_sellers_dataset.csv,column_profile,seller_zip_code_prefix,"3,095 non-null","dtype=Int64 unique=2,246",info
+olist_sellers_dataset.csv,column_profile,seller_city,"3,095 non-null",dtype=str unique=611,info
+olist_sellers_dataset.csv,column_profile,seller_state,"3,095 non-null",dtype=str unique=23,info
+olist_sellers_dataset.csv,orphan.seller.zip,-,"7 of 3,095",foreign-key orphans (child rows without a parent),flagged
+olist_geolocation_dataset.csv,row_count,-,"1,000,163",rows,info
+olist_geolocation_dataset.csv,column_count,-,5,columns in the file,info
+olist_geolocation_dataset.csv,exact_duplicate_rows,-,"261,831",fully duplicated rows,flagged
+olist_geolocation_dataset.csv,business_key.geolocation_zip_code_prefix,-,"981,148 extra rows in 17,972 groups",duplicate business key,flagged
+olist_geolocation_dataset.csv,missing.geolocation_zip_code_prefix,geolocation_zip_code_prefix,0 (0.0%),missing values by column,ok
+olist_geolocation_dataset.csv,missing.geolocation_lat,geolocation_lat,0 (0.0%),missing values by column,ok
+olist_geolocation_dataset.csv,missing.geolocation_lng,geolocation_lng,0 (0.0%),missing values by column,ok
+olist_geolocation_dataset.csv,missing.geolocation_city,geolocation_city,0 (0.0%),missing values by column,ok
+olist_geolocation_dataset.csv,missing.geolocation_state,geolocation_state,0 (0.0%),missing values by column,ok
+olist_geolocation_dataset.csv,column_profile,geolocation_zip_code_prefix,"1,000,163 non-null","dtype=Int64 unique=19,015",info
+olist_geolocation_dataset.csv,column_profile,geolocation_lat,"1,000,163 non-null","dtype=Float64 unique=717,360",info
+olist_geolocation_dataset.csv,column_profile,geolocation_lng,"1,000,163 non-null","dtype=Float64 unique=717,613",info
+olist_geolocation_dataset.csv,column_profile,geolocation_city,"1,000,163 non-null","dtype=str unique=8,011",info
+olist_geolocation_dataset.csv,column_profile,geolocation_state,"1,000,163 non-null",dtype=str unique=27,info
+olist_geolocation_dataset.csv,invalid.lat_outside_brazil_box,-,31,invalid or out-of-range value,flagged
+olist_geolocation_dataset.csv,invalid.lng_outside_brazil_box,-,37,invalid or out-of-range value,flagged
+product_category_name_translation.csv,row_count,-,71,rows,info
+product_category_name_translation.csv,column_count,-,2,columns in the file,info
+product_category_name_translation.csv,exact_duplicate_rows,-,0,fully duplicated rows,ok
+product_category_name_translation.csv,business_key.product_category_name,-,0 extra rows in 0 groups,duplicate business key,ok
+product_category_name_translation.csv,missing.product_category_name,product_category_name,0 (0.0%),missing values by column,ok
+product_category_name_translation.csv,missing.product_category_name_english,product_category_name_english,0 (0.0%),missing values by column,ok
+product_category_name_translation.csv,column_profile,product_category_name,71 non-null,dtype=str unique=71,info
+product_category_name_translation.csv,column_profile,product_category_name_english,71 non-null,dtype=str unique=71,info
+dim_customer,row_count,-,"99,441",rows,info
+dim_customer,column_count,-,5,columns in the file,info
+dim_customer,exact_duplicate_rows,-,0,fully duplicated rows,ok
+dim_customer,business_key.customer_id,-,0 extra rows in 0 groups,duplicate business key,ok
+dim_customer,missing.customer_id,customer_id,0 (0.0%),missing values by column,ok
+dim_customer,missing.customer_unique_id,customer_unique_id,0 (0.0%),missing values by column,ok
+dim_customer,missing.customer_zip_code_prefix,customer_zip_code_prefix,0 (0.0%),missing values by column,ok
+dim_customer,missing.customer_city,customer_city,0 (0.0%),missing values by column,ok
+dim_customer,missing.customer_state,customer_state,0 (0.0%),missing values by column,ok
+dim_customer,column_profile,customer_id,"99,441 non-null","dtype=str unique=99,441",info
+dim_customer,column_profile,customer_unique_id,"99,441 non-null","dtype=str unique=96,096",info
+dim_customer,column_profile,customer_zip_code_prefix,"99,441 non-null","dtype=Int64 unique=14,994",info
+dim_customer,column_profile,customer_city,"99,441 non-null","dtype=str unique=4,119",info
+dim_customer,column_profile,customer_state,"99,441 non-null",dtype=str unique=27,info
+dim_customer,orphan.customer.zip,-,"0 of 99,441",foreign-key orphans (child rows without a parent),ok
+dim_customer_identity,row_count,-,"96,096",rows,info
+dim_customer_identity,column_count,-,4,columns in the file,info
+dim_customer_identity,exact_duplicate_rows,-,0,fully duplicated rows,ok
+dim_customer_identity,business_key.customer_unique_id,-,0 extra rows in 0 groups,duplicate business key,ok
+dim_customer_identity,missing.customer_unique_id,customer_unique_id,0 (0.0%),missing values by column,ok
+dim_customer_identity,missing.placement_count,placement_count,0 (0.0%),missing values by column,ok
+dim_customer_identity,missing.first_customer_id,first_customer_id,0 (0.0%),missing values by column,ok
+dim_customer_identity,missing.states,states,0 (0.0%),missing values by column,ok
+dim_customer_identity,column_profile,customer_unique_id,"96,096 non-null","dtype=str unique=96,096",info
+dim_customer_identity,column_profile,placement_count,"96,096 non-null",dtype=int64 unique=9,info
+dim_customer_identity,column_profile,first_customer_id,"96,096 non-null","dtype=str unique=96,096",info
+dim_customer_identity,column_profile,states,"96,096 non-null",dtype=str unique=52,info
+dim_order,row_count,-,"99,441",rows,info
+dim_order,column_count,-,20,columns in the file,info
+dim_order,exact_duplicate_rows,-,0,fully duplicated rows,ok
+dim_order,business_key.order_id,-,0 extra rows in 0 groups,duplicate business key,ok
+dim_order,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+dim_order,missing.customer_id,customer_id,0 (0.0%),missing values by column,ok
+dim_order,missing.order_status,order_status,0 (0.0%),missing values by column,ok
+dim_order,missing.order_purchase_timestamp,order_purchase_timestamp,0 (0.0%),missing values by column,ok
+dim_order,missing.order_approved_at,order_approved_at,160 (0.16%),missing values by column,flagged
+dim_order,missing.order_delivered_carrier_date,order_delivered_carrier_date,"1,783 (1.79%)",missing values by column,flagged
+dim_order,missing.order_delivered_customer_date,order_delivered_customer_date,"2,965 (2.98%)",missing values by column,flagged
+dim_order,missing.order_estimated_delivery_date,order_estimated_delivery_date,0 (0.0%),missing values by column,ok
+dim_order,missing.delivery_delay_days,delivery_delay_days,"2,965 (2.98%)",missing values by column,flagged
+dim_order,missing.is_late_vs_estimate,is_late_vs_estimate,"2,965 (2.98%)",missing values by column,flagged
+dim_order,missing.purchase_date,purchase_date,0 (0.0%),missing values by column,ok
+dim_order,missing.is_delivered_status,is_delivered_status,0 (0.0%),missing values by column,ok
+dim_order,missing.is_revenue_status,is_revenue_status,0 (0.0%),missing values by column,ok
+dim_order,missing.missing_approval_date,missing_approval_date,0 (0.0%),missing values by column,ok
+dim_order,missing.missing_carrier_date,missing_carrier_date,0 (0.0%),missing values by column,ok
+dim_order,missing.missing_delivery_date,missing_delivery_date,0 (0.0%),missing values by column,ok
+dim_order,missing.has_line_items,has_line_items,0 (0.0%),missing values by column,ok
+dim_order,missing.has_payments,has_payments,0 (0.0%),missing values by column,ok
+dim_order,missing.has_reviews,has_reviews,0 (0.0%),missing values by column,ok
+dim_order,missing.has_impossible_date_sequence,has_impossible_date_sequence,0 (0.0%),missing values by column,ok
+dim_order,column_profile,order_id,"99,441 non-null","dtype=str unique=99,441",info
+dim_order,column_profile,customer_id,"99,441 non-null","dtype=str unique=99,441",info
+dim_order,column_profile,order_status,"99,441 non-null",dtype=str unique=8,info
+dim_order,column_profile,order_purchase_timestamp,"99,441 non-null","dtype=datetime64[us] unique=98,875",info
+dim_order,column_profile,order_approved_at,"99,281 non-null","dtype=datetime64[us] unique=90,733",info
+dim_order,column_profile,order_delivered_carrier_date,"97,658 non-null","dtype=datetime64[us] unique=81,018",info
+dim_order,column_profile,order_delivered_customer_date,"96,476 non-null","dtype=datetime64[us] unique=95,664",info
+dim_order,column_profile,order_estimated_delivery_date,"99,441 non-null",dtype=datetime64[us] unique=459,info
+dim_order,column_profile,delivery_delay_days,"96,476 non-null",dtype=Int64 unique=144,info
+dim_order,column_profile,is_late_vs_estimate,"96,476 non-null",dtype=boolean unique=2,info
+dim_order,column_profile,purchase_date,"99,441 non-null",dtype=datetime64[us] unique=634,info
+dim_order,column_profile,is_delivered_status,"99,441 non-null",dtype=boolean unique=2,info
+dim_order,column_profile,is_revenue_status,"99,441 non-null",dtype=boolean unique=2,info
+dim_order,column_profile,missing_approval_date,"99,441 non-null",dtype=bool unique=2,info
+dim_order,column_profile,missing_carrier_date,"99,441 non-null",dtype=bool unique=2,info
+dim_order,column_profile,missing_delivery_date,"99,441 non-null",dtype=bool unique=2,info
+dim_order,column_profile,has_line_items,"99,441 non-null",dtype=bool unique=2,info
+dim_order,column_profile,has_payments,"99,441 non-null",dtype=bool unique=2,info
+dim_order,column_profile,has_reviews,"99,441 non-null",dtype=bool unique=2,info
+dim_order,column_profile,has_impossible_date_sequence,"99,441 non-null",dtype=boolean unique=2,info
+dim_order,orphan.order.customer,-,"0 of 99,441",foreign-key orphans (child rows without a parent),ok
+dim_product_category,row_count,-,74,rows,info
+dim_product_category,column_count,-,3,columns in the file,info
+dim_product_category,exact_duplicate_rows,-,0,fully duplicated rows,ok
+dim_product_category,business_key.product_category_name,-,0 extra rows in 0 groups,duplicate business key,ok
+dim_product_category,missing.product_category_name,product_category_name,0 (0.0%),missing values by column,ok
+dim_product_category,missing.product_category_name_english,product_category_name_english,3 (4.05%),missing values by column,flagged
+dim_product_category,missing.has_english_translation,has_english_translation,0 (0.0%),missing values by column,ok
+dim_product_category,column_profile,product_category_name,74 non-null,dtype=str unique=74,info
+dim_product_category,column_profile,product_category_name_english,71 non-null,dtype=object unique=71,info
+dim_product_category,column_profile,has_english_translation,74 non-null,dtype=bool unique=2,info
+dim_product,row_count,-,"32,951",rows,info
+dim_product,column_count,-,12,columns in the file,info
+dim_product,exact_duplicate_rows,-,0,fully duplicated rows,ok
+dim_product,business_key.product_id,-,0 extra rows in 0 groups,duplicate business key,ok
+dim_product,missing.product_id,product_id,0 (0.0%),missing values by column,ok
+dim_product,missing.product_category_name,product_category_name,0 (0.0%),missing values by column,ok
+dim_product,missing.product_name_lenght,product_name_lenght,610 (1.85%),missing values by column,flagged
+dim_product,missing.product_description_lenght,product_description_lenght,610 (1.85%),missing values by column,flagged
+dim_product,missing.product_photos_qty,product_photos_qty,610 (1.85%),missing values by column,flagged
+dim_product,missing.product_weight_g,product_weight_g,2 (0.01%),missing values by column,flagged
+dim_product,missing.product_length_cm,product_length_cm,2 (0.01%),missing values by column,flagged
+dim_product,missing.product_height_cm,product_height_cm,2 (0.01%),missing values by column,flagged
+dim_product,missing.product_width_cm,product_width_cm,2 (0.01%),missing values by column,flagged
+dim_product,missing.category_was_missing,category_was_missing,0 (0.0%),missing values by column,ok
+dim_product,missing.product_category_name_english,product_category_name_english,623 (1.89%),missing values by column,flagged
+dim_product,missing.is_shipping_valid,is_shipping_valid,2 (0.01%),missing values by column,flagged
+dim_product,column_profile,product_id,"32,951 non-null","dtype=str unique=32,951",info
+dim_product,column_profile,product_category_name,"32,951 non-null",dtype=str unique=74,info
+dim_product,column_profile,product_name_lenght,"32,341 non-null",dtype=Int64 unique=66,info
+dim_product,column_profile,product_description_lenght,"32,341 non-null","dtype=Int64 unique=2,960",info
+dim_product,column_profile,product_photos_qty,"32,341 non-null",dtype=Int64 unique=19,info
+dim_product,column_profile,product_weight_g,"32,949 non-null","dtype=Float64 unique=2,204",info
+dim_product,column_profile,product_length_cm,"32,949 non-null",dtype=Float64 unique=99,info
+dim_product,column_profile,product_height_cm,"32,949 non-null",dtype=Float64 unique=102,info
+dim_product,column_profile,product_width_cm,"32,949 non-null",dtype=Float64 unique=95,info
+dim_product,column_profile,category_was_missing,"32,951 non-null",dtype=bool unique=2,info
+dim_product,column_profile,product_category_name_english,"32,328 non-null",dtype=object unique=71,info
+dim_product,column_profile,is_shipping_valid,"32,949 non-null",dtype=boolean unique=2,info
+dim_product,orphan.product.category,-,"0 of 32,951",foreign-key orphans (child rows without a parent),ok
+dim_seller,row_count,-,"3,095",rows,info
+dim_seller,column_count,-,4,columns in the file,info
+dim_seller,exact_duplicate_rows,-,0,fully duplicated rows,ok
+dim_seller,business_key.seller_id,-,0 extra rows in 0 groups,duplicate business key,ok
+dim_seller,missing.seller_id,seller_id,0 (0.0%),missing values by column,ok
+dim_seller,missing.seller_zip_code_prefix,seller_zip_code_prefix,0 (0.0%),missing values by column,ok
+dim_seller,missing.seller_city,seller_city,0 (0.0%),missing values by column,ok
+dim_seller,missing.seller_state,seller_state,0 (0.0%),missing values by column,ok
+dim_seller,column_profile,seller_id,"3,095 non-null","dtype=str unique=3,095",info
+dim_seller,column_profile,seller_zip_code_prefix,"3,095 non-null","dtype=Int64 unique=2,246",info
+dim_seller,column_profile,seller_city,"3,095 non-null",dtype=str unique=611,info
+dim_seller,column_profile,seller_state,"3,095 non-null",dtype=str unique=23,info
+dim_seller,orphan.seller.zip,-,"0 of 3,095",foreign-key orphans (child rows without a parent),ok
+dim_geolocation,row_count,-,"19,177",rows,info
+dim_geolocation,column_count,-,8,columns in the file,info
+dim_geolocation,exact_duplicate_rows,-,0,fully duplicated rows,ok
+dim_geolocation,business_key.geolocation_zip_code_prefix,-,0 extra rows in 0 groups,duplicate business key,ok
+dim_geolocation,missing.geolocation_zip_code_prefix,geolocation_zip_code_prefix,0 (0.0%),missing values by column,ok
+dim_geolocation,missing.geolocation_lat,geolocation_lat,167 (0.87%),missing values by column,flagged
+dim_geolocation,missing.geolocation_lng,geolocation_lng,167 (0.87%),missing values by column,flagged
+dim_geolocation,missing.geolocation_city,geolocation_city,167 (0.87%),missing values by column,flagged
+dim_geolocation,missing.geolocation_state,geolocation_state,167 (0.87%),missing values by column,flagged
+dim_geolocation,missing.valid_coordinate_count,valid_coordinate_count,0 (0.0%),missing values by column,ok
+dim_geolocation,missing.source_row_count,source_row_count,0 (0.0%),missing values by column,ok
+dim_geolocation,missing.is_valid_coordinate,is_valid_coordinate,0 (0.0%),missing values by column,ok
+dim_geolocation,column_profile,geolocation_zip_code_prefix,"19,177 non-null","dtype=Int64 unique=19,177",info
+dim_geolocation,column_profile,geolocation_lat,"19,010 non-null","dtype=object unique=18,993",info
+dim_geolocation,column_profile,geolocation_lng,"19,010 non-null","dtype=object unique=18,995",info
+dim_geolocation,column_profile,geolocation_city,"19,010 non-null","dtype=object unique=5,828",info
+dim_geolocation,column_profile,geolocation_state,"19,010 non-null",dtype=object unique=27,info
+dim_geolocation,column_profile,valid_coordinate_count,"19,177 non-null",dtype=Int64 unique=373,info
+dim_geolocation,column_profile,source_row_count,"19,177 non-null",dtype=Int64 unique=373,info
+dim_geolocation,column_profile,is_valid_coordinate,"19,177 non-null",dtype=boolean unique=2,info
+fact_order_item,row_count,-,"112,650",rows,info
+fact_order_item,column_count,-,9,columns in the file,info
+fact_order_item,exact_duplicate_rows,-,0,fully duplicated rows,ok
+fact_order_item,"business_key.order_id,order_item_id",-,0 extra rows in 0 groups,duplicate business key,ok
+fact_order_item,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+fact_order_item,missing.order_item_id,order_item_id,0 (0.0%),missing values by column,ok
+fact_order_item,missing.product_id,product_id,0 (0.0%),missing values by column,ok
+fact_order_item,missing.seller_id,seller_id,0 (0.0%),missing values by column,ok
+fact_order_item,missing.shipping_limit_date,shipping_limit_date,0 (0.0%),missing values by column,ok
+fact_order_item,missing.price,price,0 (0.0%),missing values by column,ok
+fact_order_item,missing.freight_value,freight_value,0 (0.0%),missing values by column,ok
+fact_order_item,missing.is_valid_price,is_valid_price,0 (0.0%),missing values by column,ok
+fact_order_item,missing.is_valid_freight,is_valid_freight,0 (0.0%),missing values by column,ok
+fact_order_item,column_profile,order_id,"112,650 non-null","dtype=str unique=98,666",info
+fact_order_item,column_profile,order_item_id,"112,650 non-null",dtype=Int64 unique=21,info
+fact_order_item,column_profile,product_id,"112,650 non-null","dtype=str unique=32,951",info
+fact_order_item,column_profile,seller_id,"112,650 non-null","dtype=str unique=3,095",info
+fact_order_item,column_profile,shipping_limit_date,"112,650 non-null","dtype=datetime64[us] unique=54,615",info
+fact_order_item,column_profile,price,"112,650 non-null","dtype=Float64 unique=5,968",info
+fact_order_item,column_profile,freight_value,"112,650 non-null","dtype=Float64 unique=6,999",info
+fact_order_item,column_profile,is_valid_price,"112,650 non-null",dtype=boolean unique=1,info
+fact_order_item,column_profile,is_valid_freight,"112,650 non-null",dtype=boolean unique=1,info
+fact_order_item,orphan.item.order,-,"0 of 112,650",foreign-key orphans (child rows without a parent),ok
+fact_order_item,orphan.item.product,-,"0 of 112,650",foreign-key orphans (child rows without a parent),ok
+fact_order_item,orphan.item.seller,-,"0 of 112,650",foreign-key orphans (child rows without a parent),ok
+bridge_payment,row_count,-,"103,886",rows,info
+bridge_payment,column_count,-,7,columns in the file,info
+bridge_payment,exact_duplicate_rows,-,0,fully duplicated rows,ok
+bridge_payment,"business_key.order_id,payment_sequential",-,0 extra rows in 0 groups,duplicate business key,ok
+bridge_payment,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+bridge_payment,missing.payment_sequential,payment_sequential,0 (0.0%),missing values by column,ok
+bridge_payment,missing.payment_type,payment_type,0 (0.0%),missing values by column,ok
+bridge_payment,missing.payment_installments,payment_installments,0 (0.0%),missing values by column,ok
+bridge_payment,missing.payment_value,payment_value,0 (0.0%),missing values by column,ok
+bridge_payment,missing.is_valid_payment_value,is_valid_payment_value,0 (0.0%),missing values by column,ok
+bridge_payment,missing.is_valid_installments,is_valid_installments,0 (0.0%),missing values by column,ok
+bridge_payment,column_profile,order_id,"103,886 non-null","dtype=str unique=99,440",info
+bridge_payment,column_profile,payment_sequential,"103,886 non-null",dtype=Int64 unique=29,info
+bridge_payment,column_profile,payment_type,"103,886 non-null",dtype=str unique=5,info
+bridge_payment,column_profile,payment_installments,"103,886 non-null",dtype=Int64 unique=24,info
+bridge_payment,column_profile,payment_value,"103,886 non-null","dtype=Float64 unique=29,077",info
+bridge_payment,column_profile,is_valid_payment_value,"103,886 non-null",dtype=boolean unique=2,info
+bridge_payment,column_profile,is_valid_installments,"103,886 non-null",dtype=boolean unique=2,info
+bridge_payment,orphan.payment.order,-,"0 of 103,886",foreign-key orphans (child rows without a parent),ok
+bridge_review,row_count,-,"98,673",rows,info
+bridge_review,column_count,-,9,columns in the file,info
+bridge_review,exact_duplicate_rows,-,0,fully duplicated rows,ok
+bridge_review,business_key.order_id,-,0 extra rows in 0 groups,duplicate business key,ok
+bridge_review,missing.review_id,review_id,0 (0.0%),missing values by column,ok
+bridge_review,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+bridge_review,missing.review_score,review_score,0 (0.0%),missing values by column,ok
+bridge_review,missing.review_comment_title,review_comment_title,"87,123 (88.29%)",missing values by column,flagged
+bridge_review,missing.review_comment_message,review_comment_message,"57,898 (58.68%)",missing values by column,flagged
+bridge_review,missing.review_creation_date,review_creation_date,0 (0.0%),missing values by column,ok
+bridge_review,missing.review_answer_timestamp,review_answer_timestamp,0 (0.0%),missing values by column,ok
+bridge_review,missing.source_review_rows,source_review_rows,0 (0.0%),missing values by column,ok
+bridge_review,missing.distinct_review_ids,distinct_review_ids,0 (0.0%),missing values by column,ok
+bridge_review,column_profile,review_id,"98,673 non-null","dtype=str unique=98,095",info
+bridge_review,column_profile,order_id,"98,673 non-null","dtype=str unique=98,673",info
+bridge_review,column_profile,review_score,"98,673 non-null",dtype=Int64 unique=5,info
+bridge_review,column_profile,review_comment_title,"11,550 non-null","dtype=str unique=4,525",info
+bridge_review,column_profile,review_comment_message,"40,775 non-null","dtype=str unique=36,060",info
+bridge_review,column_profile,review_creation_date,"98,673 non-null",dtype=datetime64[us] unique=636,info
+bridge_review,column_profile,review_answer_timestamp,"98,673 non-null","dtype=datetime64[us] unique=97,933",info
+bridge_review,column_profile,source_review_rows,"98,673 non-null",dtype=int64 unique=3,info
+bridge_review,column_profile,distinct_review_ids,"98,673 non-null",dtype=int64 unique=3,info
+bridge_review,orphan.review.order,-,"0 of 98,673",foreign-key orphans (child rows without a parent),ok
+fact_order_summary,row_count,-,"99,441",rows,info
+fact_order_summary,column_count,-,14,columns in the file,info
+fact_order_summary,exact_duplicate_rows,-,0,fully duplicated rows,ok
+fact_order_summary,business_key.order_id,-,0 extra rows in 0 groups,duplicate business key,ok
+fact_order_summary,missing.order_id,order_id,0 (0.0%),missing values by column,ok
+fact_order_summary,missing.n_items,n_items,0 (0.0%),missing values by column,ok
+fact_order_summary,missing.n_distinct_products,n_distinct_products,0 (0.0%),missing values by column,ok
+fact_order_summary,missing.item_revenue,item_revenue,775 (0.78%),missing values by column,flagged
+fact_order_summary,missing.n_payments,n_payments,0 (0.0%),missing values by column,ok
+fact_order_summary,missing.payment_collected,payment_collected,1 (0.0%),missing values by column,flagged
+fact_order_summary,missing.n_reviews,n_reviews,0 (0.0%),missing values by column,ok
+fact_order_summary,missing.avg_review_score,avg_review_score,768 (0.77%),missing values by column,flagged
+fact_order_summary,missing.payment_minus_item_revenue,payment_minus_item_revenue,776 (0.78%),missing values by column,flagged
+fact_order_summary,missing.order_status,order_status,0 (0.0%),missing values by column,ok
+fact_order_summary,missing.is_revenue_status,is_revenue_status,0 (0.0%),missing values by column,ok
+fact_order_summary,missing.purchase_date,purchase_date,0 (0.0%),missing values by column,ok
+fact_order_summary,missing.delivery_delay_days,delivery_delay_days,"2,965 (2.98%)",missing values by column,flagged
+fact_order_summary,missing.is_late_vs_estimate,is_late_vs_estimate,"2,965 (2.98%)",missing values by column,flagged
+fact_order_summary,column_profile,order_id,"99,441 non-null","dtype=str unique=99,441",info
+fact_order_summary,column_profile,n_items,"99,441 non-null",dtype=Int64 unique=18,info
+fact_order_summary,column_profile,n_distinct_products,"99,441 non-null",dtype=Int64 unique=9,info
+fact_order_summary,column_profile,item_revenue,"98,666 non-null","dtype=Float64 unique=31,074",info
+fact_order_summary,column_profile,n_payments,"99,441 non-null",dtype=Int64 unique=21,info
+fact_order_summary,column_profile,payment_collected,"99,440 non-null","dtype=Float64 unique=27,979",info
+fact_order_summary,column_profile,n_reviews,"99,441 non-null",dtype=Int64 unique=2,info
+fact_order_summary,column_profile,avg_review_score,"98,673 non-null",dtype=Float64 unique=5,info
+fact_order_summary,column_profile,payment_minus_item_revenue,"98,665 non-null",dtype=Float64 unique=309,info
+fact_order_summary,column_profile,order_status,"99,441 non-null",dtype=str unique=8,info
+fact_order_summary,column_profile,is_revenue_status,"99,441 non-null",dtype=boolean unique=2,info
+fact_order_summary,column_profile,purchase_date,"99,441 non-null",dtype=datetime64[us] unique=634,info
+fact_order_summary,column_profile,delivery_delay_days,"96,476 non-null",dtype=Int64 unique=144,info
+fact_order_summary,column_profile,is_late_vs_estimate,"96,476 non-null",dtype=boolean unique=2,info
+fact_order_summary,orphan.summary.order,-,"0 of 99,441",foreign-key orphans (child rows without a parent),ok

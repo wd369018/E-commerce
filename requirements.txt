@@ -1,0 +1,18 @@
+# ShopScope - E-Commerce Intelligence Platform
+# Runtime + test dependencies.
+#
+# Verified working set on CPython 3.14 (Windows):
+#   py -3.14 -m pip install -r requirements.txt
+#
+# These are the packages imported directly by src/, app/ and tests/.
+# The versions are the ones the project is verified against; streamlit pulls
+# in its own remaining transitive dependencies (altair, tornado, ...).
+pandas==3.0.3
+numpy==2.4.4
+streamlit==1.57.0
+plotly==7.0.0
+matplotlib==3.11.1
+# Arrow engine behind Streamlit dataframes / st.cache_data for pandas frames.
+pyarrow==24.0.0
+# Test runner (the suite uses pytest fixtures + streamlit.testing AppTest).
+pytest==9.1.1

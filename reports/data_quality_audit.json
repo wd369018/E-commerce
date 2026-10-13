@@ -1,0 +1,2053 @@
+{
+  "generated_utc": "2026-10-11T18:22:14+00:00",
+  "source": "etl_pipeline",
+  "raw": {
+    "olist_orders_dataset.csv": {
+      "rows": 99441,
+      "column_count": 8,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "order_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "order_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 99441
+        },
+        "customer_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 99441
+        },
+        "order_status": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 8
+        },
+        "order_purchase_timestamp": {
+          "dtype": "datetime64[us]",
+          "non_null": 99441,
+          "unique": 98875
+        },
+        "order_approved_at": {
+          "dtype": "datetime64[us]",
+          "non_null": 99281,
+          "unique": 90733
+        },
+        "order_delivered_carrier_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 97658,
+          "unique": 81018
+        },
+        "order_delivered_customer_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 96476,
+          "unique": 95664
+        },
+        "order_estimated_delivery_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 99441,
+          "unique": 459
+        }
+      },
+      "missing": {
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_status": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_purchase_timestamp": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_approved_at": {
+          "count": 160,
+          "pct": 0.16
+        },
+        "order_delivered_carrier_date": {
+          "count": 1783,
+          "pct": 1.79
+        },
+        "order_delivered_customer_date": {
+          "count": 2965,
+          "pct": 2.98
+        },
+        "order_estimated_delivery_date": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "order.customer": {
+          "orphan_rows": 0,
+          "child_rows": 99441
+        }
+      }
+    },
+    "olist_customers_dataset.csv": {
+      "rows": 99441,
+      "column_count": 5,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "customer_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        },
+        "customer_unique_id": {
+          "extra_rows": 3345,
+          "duplicate_groups": 2997
+        }
+      },
+      "columns": {
+        "customer_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 99441
+        },
+        "customer_unique_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 96096
+        },
+        "customer_zip_code_prefix": {
+          "dtype": "Int64",
+          "non_null": 99441,
+          "unique": 14994
+        },
+        "customer_city": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 4119
+        },
+        "customer_state": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 27
+        }
+      },
+      "missing": {
+        "customer_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_unique_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_zip_code_prefix": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_city": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_state": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "customer.zip": {
+          "orphan_rows": 278,
+          "child_rows": 99441
+        }
+      }
+    },
+    "olist_order_items_dataset.csv": {
+      "rows": 112650,
+      "column_count": 7,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "order_id": {
+          "extra_rows": 13984,
+          "duplicate_groups": 9803
+        },
+        "order_id,order_item_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "order_id": {
+          "dtype": "str",
+          "non_null": 112650,
+          "unique": 98666
+        },
+        "order_item_id": {
+          "dtype": "Int64",
+          "non_null": 112650,
+          "unique": 21
+        },
+        "product_id": {
+          "dtype": "str",
+          "non_null": 112650,
+          "unique": 32951
+        },
+        "seller_id": {
+          "dtype": "str",
+          "non_null": 112650,
+          "unique": 3095
+        },
+        "shipping_limit_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 112650,
+          "unique": 54615
+        },
+        "price": {
+          "dtype": "Float64",
+          "non_null": 112650,
+          "unique": 5968
+        },
+        "freight_value": {
+          "dtype": "Float64",
+          "non_null": 112650,
+          "unique": 6999
+        }
+      },
+      "missing": {
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_item_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "product_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "seller_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "shipping_limit_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "price": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "freight_value": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "item.order": {
+          "orphan_rows": 0,
+          "child_rows": 112650
+        },
+        "item.product": {
+          "orphan_rows": 0,
+          "child_rows": 112650
+        },
+        "item.seller": {
+          "orphan_rows": 0,
+          "child_rows": 112650
+        }
+      }
+    },
+    "olist_order_payments_dataset.csv": {
+      "rows": 103886,
+      "column_count": 5,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "order_id": {
+          "extra_rows": 4446,
+          "duplicate_groups": 2961
+        },
+        "order_id,payment_sequential": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "order_id": {
+          "dtype": "str",
+          "non_null": 103886,
+          "unique": 99440
+        },
+        "payment_sequential": {
+          "dtype": "Int64",
+          "non_null": 103886,
+          "unique": 29
+        },
+        "payment_type": {
+          "dtype": "str",
+          "non_null": 103886,
+          "unique": 5
+        },
+        "payment_installments": {
+          "dtype": "Int64",
+          "non_null": 103886,
+          "unique": 24
+        },
+        "payment_value": {
+          "dtype": "Float64",
+          "non_null": 103886,
+          "unique": 29077
+        }
+      },
+      "missing": {
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_sequential": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_type": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_installments": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_value": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {
+        "payment_value_non_positive": 9,
+        "installments_non_positive": 2
+      },
+      "parse_failures": {},
+      "relationships": {
+        "payment.order": {
+          "orphan_rows": 0,
+          "child_rows": 103886
+        }
+      }
+    },
+    "olist_order_reviews_dataset.csv": {
+      "rows": 99224,
+      "column_count": 7,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "review_id": {
+          "extra_rows": 814,
+          "duplicate_groups": 789
+        },
+        "order_id": {
+          "extra_rows": 551,
+          "duplicate_groups": 547
+        }
+      },
+      "columns": {
+        "review_id": {
+          "dtype": "str",
+          "non_null": 99224,
+          "unique": 98410
+        },
+        "order_id": {
+          "dtype": "str",
+          "non_null": 99224,
+          "unique": 98673
+        },
+        "review_score": {
+          "dtype": "Int64",
+          "non_null": 99224,
+          "unique": 5
+        },
+        "review_comment_title": {
+          "dtype": "str",
+          "non_null": 11568,
+          "unique": 4527
+        },
+        "review_comment_message": {
+          "dtype": "str",
+          "non_null": 40977,
+          "unique": 36159
+        },
+        "review_creation_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 99224,
+          "unique": 636
+        },
+        "review_answer_timestamp": {
+          "dtype": "datetime64[us]",
+          "non_null": 99224,
+          "unique": 98248
+        }
+      },
+      "missing": {
+        "review_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "review_score": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "review_comment_title": {
+          "count": 87656,
+          "pct": 88.34
+        },
+        "review_comment_message": {
+          "count": 58247,
+          "pct": 58.7
+        },
+        "review_creation_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "review_answer_timestamp": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "review.order": {
+          "orphan_rows": 0,
+          "child_rows": 99224
+        }
+      }
+    },
+    "olist_products_dataset.csv": {
+      "rows": 32951,
+      "column_count": 9,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "product_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "product_id": {
+          "dtype": "str",
+          "non_null": 32951,
+          "unique": 32951
+        },
+        "product_category_name": {
+          "dtype": "str",
+          "non_null": 32341,
+          "unique": 73
+        },
+        "product_name_lenght": {
+          "dtype": "Int64",
+          "non_null": 32341,
+          "unique": 66
+        },
+        "product_description_lenght": {
+          "dtype": "Int64",
+          "non_null": 32341,
+          "unique": 2960
+        },
+        "product_photos_qty": {
+          "dtype": "Int64",
+          "non_null": 32341,
+          "unique": 19
+        },
+        "product_weight_g": {
+          "dtype": "Float64",
+          "non_null": 32949,
+          "unique": 2204
+        },
+        "product_length_cm": {
+          "dtype": "Float64",
+          "non_null": 32949,
+          "unique": 99
+        },
+        "product_height_cm": {
+          "dtype": "Float64",
+          "non_null": 32949,
+          "unique": 102
+        },
+        "product_width_cm": {
+          "dtype": "Float64",
+          "non_null": 32949,
+          "unique": 95
+        }
+      },
+      "missing": {
+        "product_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "product_category_name": {
+          "count": 610,
+          "pct": 1.85
+        },
+        "product_name_lenght": {
+          "count": 610,
+          "pct": 1.85
+        },
+        "product_description_lenght": {
+          "count": 610,
+          "pct": 1.85
+        },
+        "product_photos_qty": {
+          "count": 610,
+          "pct": 1.85
+        },
+        "product_weight_g": {
+          "count": 2,
+          "pct": 0.01
+        },
+        "product_length_cm": {
+          "count": 2,
+          "pct": 0.01
+        },
+        "product_height_cm": {
+          "count": 2,
+          "pct": 0.01
+        },
+        "product_width_cm": {
+          "count": 2,
+          "pct": 0.01
+        }
+      },
+      "invalid": {
+        "product_weight_g_non_positive": 4
+      },
+      "parse_failures": {},
+      "relationships": {
+        "product.category": {
+          "orphan_rows": 13,
+          "child_rows": 32341
+        }
+      }
+    },
+    "olist_sellers_dataset.csv": {
+      "rows": 3095,
+      "column_count": 4,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "seller_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "seller_id": {
+          "dtype": "str",
+          "non_null": 3095,
+          "unique": 3095
+        },
+        "seller_zip_code_prefix": {
+          "dtype": "Int64",
+          "non_null": 3095,
+          "unique": 2246
+        },
+        "seller_city": {
+          "dtype": "str",
+          "non_null": 3095,
+          "unique": 611
+        },
+        "seller_state": {
+          "dtype": "str",
+          "non_null": 3095,
+          "unique": 23
+        }
+      },
+      "missing": {
+        "seller_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "seller_zip_code_prefix": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "seller_city": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "seller_state": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "seller.zip": {
+          "orphan_rows": 7,
+          "child_rows": 3095
+        }
+      }
+    },
+    "olist_geolocation_dataset.csv": {
+      "rows": 1000163,
+      "column_count": 5,
+      "exact_duplicate_rows": 261831,
+      "business_keys": {
+        "geolocation_zip_code_prefix": {
+          "extra_rows": 981148,
+          "duplicate_groups": 17972
+        }
+      },
+      "columns": {
+        "geolocation_zip_code_prefix": {
+          "dtype": "Int64",
+          "non_null": 1000163,
+          "unique": 19015
+        },
+        "geolocation_lat": {
+          "dtype": "Float64",
+          "non_null": 1000163,
+          "unique": 717360
+        },
+        "geolocation_lng": {
+          "dtype": "Float64",
+          "non_null": 1000163,
+          "unique": 717613
+        },
+        "geolocation_city": {
+          "dtype": "str",
+          "non_null": 1000163,
+          "unique": 8011
+        },
+        "geolocation_state": {
+          "dtype": "str",
+          "non_null": 1000163,
+          "unique": 27
+        }
+      },
+      "missing": {
+        "geolocation_zip_code_prefix": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "geolocation_lat": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "geolocation_lng": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "geolocation_city": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "geolocation_state": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {
+        "lat_outside_brazil_box": 31,
+        "lng_outside_brazil_box": 37
+      },
+      "parse_failures": {},
+      "relationships": {}
+    },
+    "product_category_name_translation.csv": {
+      "rows": 71,
+      "column_count": 2,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "product_category_name": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "product_category_name": {
+          "dtype": "str",
+          "non_null": 71,
+          "unique": 71
+        },
+        "product_category_name_english": {
+          "dtype": "str",
+          "non_null": 71,
+          "unique": 71
+        }
+      },
+      "missing": {
+        "product_category_name": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "product_category_name_english": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {}
+    }
+  },
+  "cleaned": {
+    "dim_customer": {
+      "rows": 99441,
+      "column_count": 5,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "customer_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "customer_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 99441
+        },
+        "customer_unique_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 96096
+        },
+        "customer_zip_code_prefix": {
+          "dtype": "Int64",
+          "non_null": 99441,
+          "unique": 14994
+        },
+        "customer_city": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 4119
+        },
+        "customer_state": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 27
+        }
+      },
+      "missing": {
+        "customer_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_unique_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_zip_code_prefix": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_city": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_state": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "customer.zip": {
+          "orphan_rows": 0,
+          "child_rows": 99441
+        }
+      }
+    },
+    "dim_customer_identity": {
+      "rows": 96096,
+      "column_count": 4,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "customer_unique_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "customer_unique_id": {
+          "dtype": "str",
+          "non_null": 96096,
+          "unique": 96096
+        },
+        "placement_count": {
+          "dtype": "int64",
+          "non_null": 96096,
+          "unique": 9
+        },
+        "first_customer_id": {
+          "dtype": "str",
+          "non_null": 96096,
+          "unique": 96096
+        },
+        "states": {
+          "dtype": "str",
+          "non_null": 96096,
+          "unique": 52
+        }
+      },
+      "missing": {
+        "customer_unique_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "placement_count": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "first_customer_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "states": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {}
+    },
+    "dim_order": {
+      "rows": 99441,
+      "column_count": 20,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "order_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "order_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 99441
+        },
+        "customer_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 99441
+        },
+        "order_status": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 8
+        },
+        "order_purchase_timestamp": {
+          "dtype": "datetime64[us]",
+          "non_null": 99441,
+          "unique": 98875
+        },
+        "order_approved_at": {
+          "dtype": "datetime64[us]",
+          "non_null": 99281,
+          "unique": 90733
+        },
+        "order_delivered_carrier_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 97658,
+          "unique": 81018
+        },
+        "order_delivered_customer_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 96476,
+          "unique": 95664
+        },
+        "order_estimated_delivery_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 99441,
+          "unique": 459
+        },
+        "delivery_delay_days": {
+          "dtype": "Int64",
+          "non_null": 96476,
+          "unique": 144
+        },
+        "is_late_vs_estimate": {
+          "dtype": "boolean",
+          "non_null": 96476,
+          "unique": 2
+        },
+        "purchase_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 99441,
+          "unique": 634
+        },
+        "is_delivered_status": {
+          "dtype": "boolean",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "is_revenue_status": {
+          "dtype": "boolean",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "missing_approval_date": {
+          "dtype": "bool",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "missing_carrier_date": {
+          "dtype": "bool",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "missing_delivery_date": {
+          "dtype": "bool",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "has_line_items": {
+          "dtype": "bool",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "has_payments": {
+          "dtype": "bool",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "has_reviews": {
+          "dtype": "bool",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "has_impossible_date_sequence": {
+          "dtype": "boolean",
+          "non_null": 99441,
+          "unique": 2
+        }
+      },
+      "missing": {
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "customer_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_status": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_purchase_timestamp": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_approved_at": {
+          "count": 160,
+          "pct": 0.16
+        },
+        "order_delivered_carrier_date": {
+          "count": 1783,
+          "pct": 1.79
+        },
+        "order_delivered_customer_date": {
+          "count": 2965,
+          "pct": 2.98
+        },
+        "order_estimated_delivery_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "delivery_delay_days": {
+          "count": 2965,
+          "pct": 2.98
+        },
+        "is_late_vs_estimate": {
+          "count": 2965,
+          "pct": 2.98
+        },
+        "purchase_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "is_delivered_status": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "is_revenue_status": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "missing_approval_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "missing_carrier_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "missing_delivery_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "has_line_items": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "has_payments": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "has_reviews": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "has_impossible_date_sequence": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "order.customer": {
+          "orphan_rows": 0,
+          "child_rows": 99441
+        }
+      }
+    },
+    "dim_product_category": {
+      "rows": 74,
+      "column_count": 3,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "product_category_name": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "product_category_name": {
+          "dtype": "str",
+          "non_null": 74,
+          "unique": 74
+        },
+        "product_category_name_english": {
+          "dtype": "object",
+          "non_null": 71,
+          "unique": 71
+        },
+        "has_english_translation": {
+          "dtype": "bool",
+          "non_null": 74,
+          "unique": 2
+        }
+      },
+      "missing": {
+        "product_category_name": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "product_category_name_english": {
+          "count": 3,
+          "pct": 4.05
+        },
+        "has_english_translation": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {}
+    },
+    "dim_product": {
+      "rows": 32951,
+      "column_count": 12,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "product_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "product_id": {
+          "dtype": "str",
+          "non_null": 32951,
+          "unique": 32951
+        },
+        "product_category_name": {
+          "dtype": "str",
+          "non_null": 32951,
+          "unique": 74
+        },
+        "product_name_lenght": {
+          "dtype": "Int64",
+          "non_null": 32341,
+          "unique": 66
+        },
+        "product_description_lenght": {
+          "dtype": "Int64",
+          "non_null": 32341,
+          "unique": 2960
+        },
+        "product_photos_qty": {
+          "dtype": "Int64",
+          "non_null": 32341,
+          "unique": 19
+        },
+        "product_weight_g": {
+          "dtype": "Float64",
+          "non_null": 32949,
+          "unique": 2204
+        },
+        "product_length_cm": {
+          "dtype": "Float64",
+          "non_null": 32949,
+          "unique": 99
+        },
+        "product_height_cm": {
+          "dtype": "Float64",
+          "non_null": 32949,
+          "unique": 102
+        },
+        "product_width_cm": {
+          "dtype": "Float64",
+          "non_null": 32949,
+          "unique": 95
+        },
+        "category_was_missing": {
+          "dtype": "bool",
+          "non_null": 32951,
+          "unique": 2
+        },
+        "product_category_name_english": {
+          "dtype": "object",
+          "non_null": 32328,
+          "unique": 71
+        },
+        "is_shipping_valid": {
+          "dtype": "boolean",
+          "non_null": 32949,
+          "unique": 2
+        }
+      },
+      "missing": {
+        "product_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "product_category_name": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "product_name_lenght": {
+          "count": 610,
+          "pct": 1.85
+        },
+        "product_description_lenght": {
+          "count": 610,
+          "pct": 1.85
+        },
+        "product_photos_qty": {
+          "count": 610,
+          "pct": 1.85
+        },
+        "product_weight_g": {
+          "count": 2,
+          "pct": 0.01
+        },
+        "product_length_cm": {
+          "count": 2,
+          "pct": 0.01
+        },
+        "product_height_cm": {
+          "count": 2,
+          "pct": 0.01
+        },
+        "product_width_cm": {
+          "count": 2,
+          "pct": 0.01
+        },
+        "category_was_missing": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "product_category_name_english": {
+          "count": 623,
+          "pct": 1.89
+        },
+        "is_shipping_valid": {
+          "count": 2,
+          "pct": 0.01
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "product.category": {
+          "orphan_rows": 0,
+          "child_rows": 32951
+        }
+      }
+    },
+    "dim_seller": {
+      "rows": 3095,
+      "column_count": 4,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "seller_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "seller_id": {
+          "dtype": "str",
+          "non_null": 3095,
+          "unique": 3095
+        },
+        "seller_zip_code_prefix": {
+          "dtype": "Int64",
+          "non_null": 3095,
+          "unique": 2246
+        },
+        "seller_city": {
+          "dtype": "str",
+          "non_null": 3095,
+          "unique": 611
+        },
+        "seller_state": {
+          "dtype": "str",
+          "non_null": 3095,
+          "unique": 23
+        }
+      },
+      "missing": {
+        "seller_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "seller_zip_code_prefix": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "seller_city": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "seller_state": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "seller.zip": {
+          "orphan_rows": 0,
+          "child_rows": 3095
+        }
+      }
+    },
+    "dim_geolocation": {
+      "rows": 19177,
+      "column_count": 8,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "geolocation_zip_code_prefix": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "geolocation_zip_code_prefix": {
+          "dtype": "Int64",
+          "non_null": 19177,
+          "unique": 19177
+        },
+        "geolocation_lat": {
+          "dtype": "object",
+          "non_null": 19010,
+          "unique": 18993
+        },
+        "geolocation_lng": {
+          "dtype": "object",
+          "non_null": 19010,
+          "unique": 18995
+        },
+        "geolocation_city": {
+          "dtype": "object",
+          "non_null": 19010,
+          "unique": 5828
+        },
+        "geolocation_state": {
+          "dtype": "object",
+          "non_null": 19010,
+          "unique": 27
+        },
+        "valid_coordinate_count": {
+          "dtype": "Int64",
+          "non_null": 19177,
+          "unique": 373
+        },
+        "source_row_count": {
+          "dtype": "Int64",
+          "non_null": 19177,
+          "unique": 373
+        },
+        "is_valid_coordinate": {
+          "dtype": "boolean",
+          "non_null": 19177,
+          "unique": 2
+        }
+      },
+      "missing": {
+        "geolocation_zip_code_prefix": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "geolocation_lat": {
+          "count": 167,
+          "pct": 0.87
+        },
+        "geolocation_lng": {
+          "count": 167,
+          "pct": 0.87
+        },
+        "geolocation_city": {
+          "count": 167,
+          "pct": 0.87
+        },
+        "geolocation_state": {
+          "count": 167,
+          "pct": 0.87
+        },
+        "valid_coordinate_count": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "source_row_count": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "is_valid_coordinate": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {}
+    },
+    "fact_order_item": {
+      "rows": 112650,
+      "column_count": 9,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "order_id,order_item_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "order_id": {
+          "dtype": "str",
+          "non_null": 112650,
+          "unique": 98666
+        },
+        "order_item_id": {
+          "dtype": "Int64",
+          "non_null": 112650,
+          "unique": 21
+        },
+        "product_id": {
+          "dtype": "str",
+          "non_null": 112650,
+          "unique": 32951
+        },
+        "seller_id": {
+          "dtype": "str",
+          "non_null": 112650,
+          "unique": 3095
+        },
+        "shipping_limit_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 112650,
+          "unique": 54615
+        },
+        "price": {
+          "dtype": "Float64",
+          "non_null": 112650,
+          "unique": 5968
+        },
+        "freight_value": {
+          "dtype": "Float64",
+          "non_null": 112650,
+          "unique": 6999
+        },
+        "is_valid_price": {
+          "dtype": "boolean",
+          "non_null": 112650,
+          "unique": 1
+        },
+        "is_valid_freight": {
+          "dtype": "boolean",
+          "non_null": 112650,
+          "unique": 1
+        }
+      },
+      "missing": {
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_item_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "product_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "seller_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "shipping_limit_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "price": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "freight_value": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "is_valid_price": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "is_valid_freight": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "item.order": {
+          "orphan_rows": 0,
+          "child_rows": 112650
+        },
+        "item.product": {
+          "orphan_rows": 0,
+          "child_rows": 112650
+        },
+        "item.seller": {
+          "orphan_rows": 0,
+          "child_rows": 112650
+        }
+      }
+    },
+    "bridge_payment": {
+      "rows": 103886,
+      "column_count": 7,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "order_id,payment_sequential": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "order_id": {
+          "dtype": "str",
+          "non_null": 103886,
+          "unique": 99440
+        },
+        "payment_sequential": {
+          "dtype": "Int64",
+          "non_null": 103886,
+          "unique": 29
+        },
+        "payment_type": {
+          "dtype": "str",
+          "non_null": 103886,
+          "unique": 5
+        },
+        "payment_installments": {
+          "dtype": "Int64",
+          "non_null": 103886,
+          "unique": 24
+        },
+        "payment_value": {
+          "dtype": "Float64",
+          "non_null": 103886,
+          "unique": 29077
+        },
+        "is_valid_payment_value": {
+          "dtype": "boolean",
+          "non_null": 103886,
+          "unique": 2
+        },
+        "is_valid_installments": {
+          "dtype": "boolean",
+          "non_null": 103886,
+          "unique": 2
+        }
+      },
+      "missing": {
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_sequential": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_type": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_installments": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_value": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "is_valid_payment_value": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "is_valid_installments": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "payment.order": {
+          "orphan_rows": 0,
+          "child_rows": 103886
+        }
+      }
+    },
+    "bridge_review": {
+      "rows": 98673,
+      "column_count": 9,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "order_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "review_id": {
+          "dtype": "str",
+          "non_null": 98673,
+          "unique": 98095
+        },
+        "order_id": {
+          "dtype": "str",
+          "non_null": 98673,
+          "unique": 98673
+        },
+        "review_score": {
+          "dtype": "Int64",
+          "non_null": 98673,
+          "unique": 5
+        },
+        "review_comment_title": {
+          "dtype": "str",
+          "non_null": 11550,
+          "unique": 4525
+        },
+        "review_comment_message": {
+          "dtype": "str",
+          "non_null": 40775,
+          "unique": 36060
+        },
+        "review_creation_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 98673,
+          "unique": 636
+        },
+        "review_answer_timestamp": {
+          "dtype": "datetime64[us]",
+          "non_null": 98673,
+          "unique": 97933
+        },
+        "source_review_rows": {
+          "dtype": "int64",
+          "non_null": 98673,
+          "unique": 3
+        },
+        "distinct_review_ids": {
+          "dtype": "int64",
+          "non_null": 98673,
+          "unique": 3
+        }
+      },
+      "missing": {
+        "review_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "review_score": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "review_comment_title": {
+          "count": 87123,
+          "pct": 88.29
+        },
+        "review_comment_message": {
+          "count": 57898,
+          "pct": 58.68
+        },
+        "review_creation_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "review_answer_timestamp": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "source_review_rows": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "distinct_review_ids": {
+          "count": 0,
+          "pct": 0.0
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "review.order": {
+          "orphan_rows": 0,
+          "child_rows": 98673
+        }
+      }
+    },
+    "fact_order_summary": {
+      "rows": 99441,
+      "column_count": 14,
+      "exact_duplicate_rows": 0,
+      "business_keys": {
+        "order_id": {
+          "extra_rows": 0,
+          "duplicate_groups": 0
+        }
+      },
+      "columns": {
+        "order_id": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 99441
+        },
+        "n_items": {
+          "dtype": "Int64",
+          "non_null": 99441,
+          "unique": 18
+        },
+        "n_distinct_products": {
+          "dtype": "Int64",
+          "non_null": 99441,
+          "unique": 9
+        },
+        "item_revenue": {
+          "dtype": "Float64",
+          "non_null": 98666,
+          "unique": 31074
+        },
+        "n_payments": {
+          "dtype": "Int64",
+          "non_null": 99441,
+          "unique": 21
+        },
+        "payment_collected": {
+          "dtype": "Float64",
+          "non_null": 99440,
+          "unique": 27979
+        },
+        "n_reviews": {
+          "dtype": "Int64",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "avg_review_score": {
+          "dtype": "Float64",
+          "non_null": 98673,
+          "unique": 5
+        },
+        "payment_minus_item_revenue": {
+          "dtype": "Float64",
+          "non_null": 98665,
+          "unique": 309
+        },
+        "order_status": {
+          "dtype": "str",
+          "non_null": 99441,
+          "unique": 8
+        },
+        "is_revenue_status": {
+          "dtype": "boolean",
+          "non_null": 99441,
+          "unique": 2
+        },
+        "purchase_date": {
+          "dtype": "datetime64[us]",
+          "non_null": 99441,
+          "unique": 634
+        },
+        "delivery_delay_days": {
+          "dtype": "Int64",
+          "non_null": 96476,
+          "unique": 144
+        },
+        "is_late_vs_estimate": {
+          "dtype": "boolean",
+          "non_null": 96476,
+          "unique": 2
+        }
+      },
+      "missing": {
+        "order_id": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "n_items": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "n_distinct_products": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "item_revenue": {
+          "count": 775,
+          "pct": 0.78
+        },
+        "n_payments": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "payment_collected": {
+          "count": 1,
+          "pct": 0.0
+        },
+        "n_reviews": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "avg_review_score": {
+          "count": 768,
+          "pct": 0.77
+        },
+        "payment_minus_item_revenue": {
+          "count": 776,
+          "pct": 0.78
+        },
+        "order_status": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "is_revenue_status": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "purchase_date": {
+          "count": 0,
+          "pct": 0.0
+        },
+        "delivery_delay_days": {
+          "count": 2965,
+          "pct": 2.98
+        },
+        "is_late_vs_estimate": {
+          "count": 2965,
+          "pct": 2.98
+        }
+      },
+      "invalid": {},
+      "parse_failures": {},
+      "relationships": {
+        "summary.order": {
+          "orphan_rows": 0,
+          "child_rows": 99441
+        }
+      }
+    }
+  },
+  "validation": {
+    "total_checks": 64,
+    "passed": 60,
+    "errors": 0,
+    "warnings": 4,
+    "failed_checks": [
+      {
+        "check_id": "bridge_payment.payment_value.range",
+        "description": "payment_value within [0.0001, 1000000000000.0]",
+        "severity": "warning",
+        "passed": false,
+        "observed": "9 out-of-range values of 103,886",
+        "expected": "0"
+      },
+      {
+        "check_id": "quality.product_untranslated_categories",
+        "description": "every real product category has an English translation",
+        "severity": "warning",
+        "passed": false,
+        "observed": "13 product row(s) whose category has no English label",
+        "expected": "0 (categories missing from the translation file)"
+      },
+      {
+        "check_id": "quality.geolocation_usable",
+        "description": "every ZIP has a usable centroid",
+        "severity": "warning",
+        "passed": false,
+        "observed": "167 ZIP(s) with NULL centroid (all coordinates quarantined or absent)",
+        "expected": "0"
+      },
+      {
+        "check_id": "quality.geolocation_address_coverage",
+        "description": "every address ZIP has geolocation source data",
+        "severity": "warning",
+        "passed": false,
+        "observed": "162 ZIP prefix(es) referenced by customers/sellers but absent from the geolocation source (placeholder row, NULL centroid)",
+        "expected": "0 (gap present in the source data, not created by this pipeline)"
+      }
+    ]
+  },
+  "row_ledger": [
+    {
+      "table": "dim_customer",
+      "input_rows": 99441,
+      "output_rows": 99441,
+      "excluded_rows": 0,
+      "exclusion_reason": "",
+      "note": "no exclusions (row count preserved)",
+      "issues": {
+        "repeat_buyer_placements": 3345
+      },
+      "actions": {
+        "kept_all_placements": 99441
+      }
+    },
+    {
+      "table": "dim_customer_identity",
+      "input_rows": 99441,
+      "output_rows": 96096,
+      "excluded_rows": 0,
+      "exclusion_reason": "1 row per real person (repeat buyers collapsed)",
+      "note": "1 row per real person (repeat buyers collapsed)",
+      "issues": {},
+      "actions": {
+        "collapsed_duplicate_unique_id": 3345
+      }
+    },
+    {
+      "table": "dim_order",
+      "input_rows": 99441,
+      "output_rows": 99441,
+      "excluded_rows": 0,
+      "exclusion_reason": "orders are never excluded; bad dates are flagged and quarantined for audit",
+      "note": "orders are never excluded; bad dates are flagged and quarantined for audit",
+      "issues": {
+        "delivered_before_purchase": 0,
+        "approved_before_purchase": 0,
+        "carrier_before_approval": 1359,
+        "delivered_before_carrier": 23,
+        "delivered_after_estimate": 7827,
+        "status_delivered_but_no_delivery_date": 8,
+        "not_delivered_status_but_has_delivery_date": 6,
+        "missing_approval_date": 160,
+        "missing_carrier_date": 1783,
+        "missing_delivery_date": 2965,
+        "no_line_items": 775,
+        "no_payments": 1,
+        "no_reviews": 768,
+        "impossible_date_sequence": 1382
+      },
+      "actions": {
+        "kept_null_delivery_date": 2965,
+        "flagged_tri_state_late": 2965,
+        "retained_and_flagged_impossible_dates": 1382,
+        "orders_never_excluded": 99441
+      }
+    },
+    {
+      "table": "dim_product_category",
+      "input_rows": 71,
+      "output_rows": 74,
+      "excluded_rows": 0,
+      "exclusion_reason": "lookup = translation UNION categories actually used UNION 'unknown'",
+      "note": "lookup = translation UNION categories actually used UNION 'unknown'",
+      "issues": {
+        "categories_used_without_english_translation": 2,
+        "translation_rows_total": 71
+      },
+      "actions": {
+        "added_unknown_sentinel_row": 1,
+        "left_english_null_when_untranslated": 2
+      }
+    },
+    {
+      "table": "dim_product",
+      "input_rows": 32951,
+      "output_rows": 32951,
+      "excluded_rows": 0,
+      "exclusion_reason": "",
+      "note": "no exclusions (row count preserved)",
+      "issues": {
+        "missing_category_name": 610,
+        "missing_name_length": 610,
+        "missing_description_length": 610,
+        "missing_photos_qty": 610,
+        "missing_weight": 2,
+        "non_positive_weight": 4,
+        "missing_any_dimension": 2,
+        "product_rows_with_untranslated_category": 13,
+        "shipping_invalid": 6
+      },
+      "actions": {
+        "category_filled_with_unknown": 610,
+        "weight_left_null_not_zero": 2,
+        "dimension_left_null_not_zero": 2,
+        "flagged_shipping_invalid": 6
+      }
+    },
+    {
+      "table": "dim_seller",
+      "input_rows": 3095,
+      "output_rows": 3095,
+      "excluded_rows": 0,
+      "exclusion_reason": "",
+      "note": "no exclusions (row count preserved)",
+      "issues": {
+        "missing_city": 0,
+        "missing_state": 0
+      },
+      "actions": {}
+    },
+    {
+      "table": "fact_order_item",
+      "input_rows": 112650,
+      "output_rows": 112650,
+      "excluded_rows": 0,
+      "exclusion_reason": "",
+      "note": "no exclusions (row count preserved)",
+      "issues": {
+        "missing_price": 0,
+        "non_positive_price": 0,
+        "negative_freight": 0,
+        "missing_shipping_limit_date": 0,
+        "repeated_product_within_order": 10225
+      },
+      "actions": {
+        "retained_repeated_product_lines": 10225
+      }
+    },
+    {
+      "table": "bridge_payment",
+      "input_rows": 103886,
+      "output_rows": 103886,
+      "excluded_rows": 0,
+      "exclusion_reason": "",
+      "note": "no exclusions (row count preserved)",
+      "issues": {
+        "non_positive_payment_value": 9,
+        "missing_payment_value": 0,
+        "non_positive_installments": 2,
+        "zero_or_negative_installments_and_value": 11
+      },
+      "actions": {
+        "kept_but_flagged": 11
+      }
+    },
+    {
+      "table": "bridge_review",
+      "input_rows": 99224,
+      "output_rows": 98673,
+      "excluded_rows": 551,
+      "exclusion_reason": "second-or-later review on the same order (would double-weight CSAT)",
+      "note": "second-or-later review on the same order (would double-weight CSAT)",
+      "issues": {
+        "source_rows": 99224,
+        "duplicate_review_id_rows": 814,
+        "duplicate_order_id_rows": 551,
+        "orders_with_conflicting_duplicate_scores": 202,
+        "missing_comment_title": 87123,
+        "missing_comment_message": 57898,
+        "missing_score": 0,
+        "score_out_of_range": 0,
+        "review_id_reused_across_orders_after_dedup": 578
+      },
+      "actions": {
+        "collapsed_to_one_review_per_order": 551,
+        "kept_latest_answer_timestamp": 98673,
+        "kept_comments_null_not_empty_string": 57898
+      }
+    },
+    {
+      "table": "dim_geolocation",
+      "input_rows": 1000163,
+      "output_rows": 19177,
+      "excluded_rows": 261864,
+      "exclusion_reason": "exact duplicate rows + coordinates outside Brazil (quarantined, not deleted)",
+      "note": "exact duplicate rows + coordinates outside Brazil (quarantined, not deleted)",
+      "issues": {
+        "source_rows": 1000163,
+        "exact_duplicate_rows": 261831,
+        "coordinates_outside_brazil": 33,
+        "unique_observations_after_dedup": 738332,
+        "distinct_zip_prefixes": 19015,
+        "zips_with_all_coordinates_quarantined": 5,
+        "zips_referenced_by_address_but_absent_from_source": 162
+      },
+      "actions": {
+        "removed_exact_duplicates": 261831,
+        "quarantined_outlier_coordinates": 33,
+        "aggregated_to_one_row_per_zip": 19177,
+        "kept_null_centroid_for_unusable_zips": 5,
+        "appended_address_only_zip_placeholders": 162
+      }
+    },
+    {
+      "table": "fact_order_summary",
+      "input_rows": 99441,
+      "output_rows": 99441,
+      "excluded_rows": 0,
+      "exclusion_reason": null,
+      "note": "rollup: one row per order (pre-aggregates items/payouts/reviews)",
+      "issues": {},
+      "actions": {
+        "prevents_join_fanout": 99441
+      }
+    }
+  ]
+}

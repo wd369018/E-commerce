@@ -1,0 +1,215 @@
+{
+  "run": {
+    "generated_utc": "2026-10-11T18:21:31+00:00",
+    "duration_seconds": 79.4,
+    "project_root": "C:\\Users\\wd369\\OneDrive\\Desktop\\E-commerce",
+    "raw_sources_unchanged": true,
+    "changed_sources": []
+  },
+  "inputs": {
+    "olist_orders_dataset.csv": {
+      "rows": 99441,
+      "columns": 8,
+      "bytes": 17654914,
+      "sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf"
+    },
+    "olist_customers_dataset.csv": {
+      "rows": 99441,
+      "columns": 5,
+      "bytes": 9033957,
+      "sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2"
+    },
+    "olist_order_items_dataset.csv": {
+      "rows": 112650,
+      "columns": 7,
+      "bytes": 14617431,
+      "sha256": "f2b268e31a9bb130d458ed504b47e3c12c78a475457ae44cf47a01db3857c49b"
+    },
+    "olist_order_payments_dataset.csv": {
+      "rows": 103886,
+      "columns": 5,
+      "bytes": 5777138,
+      "sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0"
+    },
+    "olist_order_reviews_dataset.csv": {
+      "rows": 99224,
+      "columns": 7,
+      "bytes": 14451670,
+      "sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7"
+    },
+    "olist_products_dataset.csv": {
+      "rows": 32951,
+      "columns": 9,
+      "bytes": 2379446,
+      "sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc"
+    },
+    "olist_sellers_dataset.csv": {
+      "rows": 3095,
+      "columns": 4,
+      "bytes": 174703,
+      "sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e"
+    },
+    "olist_geolocation_dataset.csv": {
+      "rows": 1000163,
+      "columns": 5,
+      "bytes": 61273883,
+      "sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6"
+    },
+    "product_category_name_translation.csv": {
+      "rows": 71,
+      "columns": 2,
+      "bytes": 2613,
+      "sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278"
+    }
+  },
+  "row_counts": [
+    {
+      "table": "dim_customer",
+      "input_rows": 99441,
+      "output_rows": 99441,
+      "excluded_rows": 0,
+      "reason": "no exclusions (row count preserved)"
+    },
+    {
+      "table": "dim_customer_identity",
+      "input_rows": 99441,
+      "output_rows": 96096,
+      "excluded_rows": 0,
+      "reason": "1 row per real person (repeat buyers collapsed)"
+    },
+    {
+      "table": "dim_order",
+      "input_rows": 99441,
+      "output_rows": 99441,
+      "excluded_rows": 0,
+      "reason": "orders are never excluded; bad dates are flagged and quarantined for audit"
+    },
+    {
+      "table": "dim_product_category",
+      "input_rows": 71,
+      "output_rows": 74,
+      "excluded_rows": 0,
+      "reason": "lookup = translation UNION categories actually used UNION 'unknown'"
+    },
+    {
+      "table": "dim_product",
+      "input_rows": 32951,
+      "output_rows": 32951,
+      "excluded_rows": 0,
+      "reason": "no exclusions (row count preserved)"
+    },
+    {
+      "table": "dim_seller",
+      "input_rows": 3095,
+      "output_rows": 3095,
+      "excluded_rows": 0,
+      "reason": "no exclusions (row count preserved)"
+    },
+    {
+      "table": "fact_order_item",
+      "input_rows": 112650,
+      "output_rows": 112650,
+      "excluded_rows": 0,
+      "reason": "no exclusions (row count preserved)"
+    },
+    {
+      "table": "bridge_payment",
+      "input_rows": 103886,
+      "output_rows": 103886,
+      "excluded_rows": 0,
+      "reason": "no exclusions (row count preserved)"
+    },
+    {
+      "table": "bridge_review",
+      "input_rows": 99224,
+      "output_rows": 98673,
+      "excluded_rows": 551,
+      "reason": "second-or-later review on the same order (would double-weight CSAT)"
+    },
+    {
+      "table": "dim_geolocation",
+      "input_rows": 1000163,
+      "output_rows": 19177,
+      "excluded_rows": 261864,
+      "reason": "exact duplicate rows + coordinates outside Brazil (quarantined, not deleted)"
+    },
+    {
+      "table": "fact_order_summary",
+      "input_rows": 99441,
+      "output_rows": 99441,
+      "excluded_rows": 0,
+      "reason": "rollup: one row per order (pre-aggregates items/payouts/reviews)"
+    }
+  ],
+  "validation": {
+    "total_checks": 64,
+    "passed": 60,
+    "errors": 0,
+    "warnings": 4,
+    "failed_checks": [
+      {
+        "check_id": "bridge_payment.payment_value.range",
+        "description": "payment_value within [0.0001, 1000000000000.0]",
+        "severity": "warning",
+        "passed": false,
+        "observed": "9 out-of-range values of 103,886",
+        "expected": "0"
+      },
+      {
+        "check_id": "quality.product_untranslated_categories",
+        "description": "every real product category has an English translation",
+        "severity": "warning",
+        "passed": false,
+        "observed": "13 product row(s) whose category has no English label",
+        "expected": "0 (categories missing from the translation file)"
+      },
+      {
+        "check_id": "quality.geolocation_usable",
+        "description": "every ZIP has a usable centroid",
+        "severity": "warning",
+        "passed": false,
+        "observed": "167 ZIP(s) with NULL centroid (all coordinates quarantined or absent)",
+        "expected": "0"
+      },
+      {
+        "check_id": "quality.geolocation_address_coverage",
+        "description": "every address ZIP has geolocation source data",
+        "severity": "warning",
+        "passed": false,
+        "observed": "162 ZIP prefix(es) referenced by customers/sellers but absent from the geolocation source (placeholder row, NULL centroid)",
+        "expected": "0 (gap present in the source data, not created by this pipeline)"
+      }
+    ]
+  },
+  "unresolved_issues": [
+    "payment_value within [0.0001, 1000000000000.0] -> 9 out-of-range values of 103,886 (expected 0)",
+    "every real product category has an English translation -> 13 product row(s) whose category has no English label (expected 0 (categories missing from the translation file))",
+    "every ZIP has a usable centroid -> 167 ZIP(s) with NULL centroid (all coordinates quarantined or absent) (expected 0)",
+    "every address ZIP has geolocation source data -> 162 ZIP prefix(es) referenced by customers/sellers but absent from the geolocation source (placeholder row, NULL centroid) (expected 0 (gap present in the source data, not created by this pipeline))",
+    "551 source rows were a second review on the same order and were collapsed to one (latest kept); 202 orders had conflicting scores.",
+    "33 geolocation coordinates were outside Brazil and were moved to data/quarantine/ (ZIP kept, centroid from valid rows).",
+    "775 orders have no line items: item_revenue is NULL for them, so GMV built on fact_order_item omits them by construction.",
+    "8 orders are marked 'delivered' with no delivery timestamp - excluded from delivery-delay metrics (NULL kept).",
+    "1,382 orders have a non-monotonic date sequence (approval / carrier / delivery out of order). They are kept and flagged with has_impossible_date_sequence; an audit copy is in data/quarantine/quarantine_invalid_dates.csv.",
+    "11 payment rows have a non-positive value or instalment count; kept and flagged, excluded from payment-mix rates.",
+    "13 product rows belong to a category with no English translation (English label left NULL, not guessed).",
+    "610 products had no category and were tagged 'unknown' so they survive group-by and joins."
+  ],
+  "outputs": [
+    "bridge_payment.csv",
+    "bridge_review.csv",
+    "dim_customer.csv",
+    "dim_customer_identity.csv",
+    "dim_geolocation.csv",
+    "dim_order.csv",
+    "dim_product.csv",
+    "dim_product_category.csv",
+    "dim_seller.csv",
+    "fact_order_item.csv",
+    "fact_order_summary.csv"
+  ],
+  "quarantine": [
+    "quarantine_geolocation_outliers.csv",
+    "quarantine_invalid_dates.csv"
+  ]
+}

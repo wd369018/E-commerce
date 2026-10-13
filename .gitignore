@@ -1,0 +1,34 @@
+﻿# Local databases (build artifacts - regenerate with: py -3.14 -m src.database)
+data/*.db
+data/*.sqlite
+data/*.sqlite3
+
+# Raw and processed datasets (regenerate with the ETL pipeline)
+data/raw/
+data/processed/
+data/quarantine/
+
+# Raw Olist CSVs kept at the project root
+olist_*.csv
+product_category_name_translation.csv
+
+# Python cache
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest_shopscope_cache/
+
+# Virtual environments
+.venv/
+venv/
+
+# Secrets
+.env
+
+# Test / run logs and scratch output
+_pytest_full_run.log
+_pytest_run1.log
+full_test_res.txt
+py_err.log
+pytest_result.txt
+test_res.txt
