@@ -7,6 +7,9 @@ data/*.sqlite3
 data/raw/
 data/processed/
 data/quarantine/
+# NB: data/processed.tar.gz is committed on purpose - app/app.py extracts it on
+# first run so the app self-bootstraps on Streamlit Cloud. The unpacked
+# data/processed/ directory itself stays ignored.
 
 # Raw Olist CSVs kept at the project root
 olist_*.csv
